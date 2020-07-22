@@ -8,6 +8,19 @@ html {
   background-position: center;
   background-size: cover;
   overflow: auto;
+  height: 100%;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.main-title-div {
+  margin-top: 25%;
 }
 
 .main-title {
@@ -22,7 +35,6 @@ html {
   width: 550px;
   height: 620px;
   margin: 0 auto;
-  margin-bottom: 100px;
   border-radius: 0.5%;
   box-shadow: 0px 5px 13px -4px rgba(0, 0, 0, 0.59);
 }
@@ -63,7 +75,11 @@ html {
     );
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: auto;
+    height: 100%;
+  }
+
+  #content {
+    display: block;
   }
 
   body {
