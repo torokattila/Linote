@@ -4,11 +4,11 @@ html {
     rgba(254, 245, 234, 1) 0%,
     rgba(255, 231, 204, 1) 90%
   );
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 100%;
+  width: 100%;
 }
 
 #content {
@@ -26,17 +26,24 @@ html {
 .main-title {
   font-family: "Indie Flower", cursive;
   color: #ff6f00;
-  font-size: 100px;
+  font-size: 120px;
   text-align: center;
+  position: relative;
+  right: 60%;
+  bottom: 10%;
 }
 
 .login-div {
   background-color: white;
-  width: 550px;
-  height: 620px;
-  margin: 0 auto;
-  border-radius: 0.5%;
+  width: 40%;
+  height: 600px;
+  margin: 0;
+  border-radius: 1%;
   box-shadow: 0px 5px 13px -4px rgba(0, 0, 0, 0.59);
+  top: 50%;
+  position: absolute;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .login-title {
@@ -44,6 +51,8 @@ html {
   color: white;
   font-size: 55px;
   text-align: center;
+  bottom: 8%;
+  position: relative;
 }
 
 .upperline {
@@ -52,8 +61,14 @@ html {
     rgba(255, 167, 80, 1) 0.1%,
     rgba(255, 106, 232, 1) 100.2%
   );
-  margin: 0;
-  padding: 1px;
+  position: absolute;
+  height: 35%;
+  width: 100%;
+}
+
+.icons {
+  position: relative;
+  bottom: 15%;
 }
 
 .facebook-login {
@@ -82,7 +97,89 @@ html {
   transition: 0.3s;
 }
 
-@media only screen and (max-width: 700px) {
+.login-credentials {
+  text-align: center;
+  margin-top: 4%;
+}
+
+.inputs {
+  margin-top: 10%;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid silver;
+  padding: 10px;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  outline: none;
+  width: 70%;
+  font-size: 20px;
+}
+
+input:-webkit-autofill {
+  border: none;
+  border-bottom: 2px solid silver;
+  padding: 10px;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  outline: none;
+  width: 70%;
+  font-size: 20px;
+}
+
+input:focus {
+  border-bottom: 3px solid #ff6f00;
+  transition: 0.3s ease;
+}
+
+.button-div {
+  position: absolute;
+  bottom:11%;
+  left: 15%;
+}
+
+.login-button {
+  border: none;
+  padding: 24%;
+  width: 200%;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0px 5px 10px -4px rgba(0, 0, 0, 0.59);
+  background-image: linear-gradient( 68.1deg,  rgba(255,200,69,1) -0.3%, rgba(239,69,115,1) 100.2% );
+}
+
+.login-button:hover {
+  box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.59);
+  background-image: linear-gradient( 68.1deg,  rgba(255,170,69,1) -0.3%, rgba(255,69,75,1) 100.2% );
+}
+
+.register-question {
+  position: absolute;
+  right: 15%;
+  text-align: center;
+  bottom: 8%;
+  font-family: "Indie Flower", cursive;
+  font-weight: bold;
+}
+
+a {
+  position: relative;
+  bottom: 15px;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+  color: #ff6f00;
+  font-family: "Indie Flower", cursive;
+}
+
+a:hover {
+  color: #974200;
+}
+
+@media only screen and (max-width: 760px) {
   html {
     background-image: radial-gradient(
       circle farthest-corner at 50.4% 49.8%,
@@ -91,15 +188,26 @@ html {
     );
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
   }
 
   #content {
-    display: block;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .icons {
+    position: relative;
+    bottom: 15%;
   }
 
   body {
     overflow: auto;
+  }
+
+  .main-title-div {
+    margin-top: inherit;
+    position: relative;
+    left: 60%;
   }
 
   .main-title {
@@ -111,13 +219,18 @@ html {
   }
 
   .login-div {
-    width: 250px;
-    height: 350px;
+    width: 63%;
+    height: 60%;
+    top: 50%;
+    left: 20%;
+    position: absolute;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 
   .facebook-login {
     height: 20px;
-    width: 12px;
+    width: 16px;
   }
 
   .google-login {

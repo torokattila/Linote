@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-        <title>Linote</title>
-    </head>
-    <body>
-        <div id="content">
-            <div class="main-title-div">
-                <h1 class="main-title">Linote</h1>
-            </div>
-            
-            <div>
-                <form action="/login" method="POST">
-                    <div class="login-div">
-    
-                        <div class="credentials">
-    
-                            <div class="upperline">
-                                <h1 class="login-title">Log In</h1>
-                                <div class="icons" align="center" style="margin-bottom: 10px;">
-                                    <a href="#" title="Login with facebook" style="margin-right: 20px;"><img class="facebook-login" src="facebook-icon.png" alt="facebook-icon"></a>
-                                    <a href="#" title="Login with Google"><img class="google-login" src="google-icon.png" alt="google-icon"></a>
-                                </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <title>Linote</title>
+</head>
+
+<body>
+    <div id="content">
+        <div class="main-title-div">
+            <h1 class="main-title">Linote</h1>
+        </div>
+
+        <div>
+            <form action="/login" method="POST" autocomplete="off">
+                <div class="login-div">
+
+                    <div class="upperline">
+                        <h1 class="login-title">Log In</h1>
+                        <div class="icons" align="center" style="margin-bottom: 10px;">
+                            <a href="#" title="Login with facebook" style="margin-right: 20px;"><img
+                                    class="facebook-login" src="facebook-icon.png" alt="facebook-icon"></a>
+                            <a href="#" title="Login with Google"><img class="google-login" src="google-icon.png"
+                                    alt="google-icon"></a>
+                        </div>
+
+                        <div class="inputs">
+                            <div class="login-credentials">
+                                <input type="email" name="login-email" id="login-email" placeholder="Email">
+
                             </div>
-                    
+                            <div class="login-credentials">
+                                <input type="password" name="login-password" id="login-password" placeholder="Password">
+                            </div>
+                            
                         </div>
                     </div>
-                </form>
-            </div>
-            
-            
+                    <div class="register-question">
+                        <p>Haven't registered yet?</p>
+                        <a href="/signup">Register</a>
+                    </div>
+                    <div class="button-div">
+                        <button class="login-button" type="submit">Log In</button>
+                    </div>
+                    
+                </div>
+            </form>
         </div>
-    </body>
+
+    </div>
+</body>
+
 </html>
