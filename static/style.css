@@ -17,6 +17,12 @@ html {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from { opacity: 0}
+  to   { opacity: 1}
 }
 
 .main-title-div {
@@ -73,7 +79,7 @@ html {
 
 .facebook-login {
   height: 35px;
-  width: 30px;
+  width: 33px;
   border: 5px solid white;
   border-radius: 50%;
   padding: 10px;
@@ -86,7 +92,7 @@ html {
 
 .google-login {
   height: 35px;
-  width: 32px;
+  width: 33px;
   border: 5px solid white;
   border-radius: 50%;
   padding: 10px;
@@ -115,6 +121,7 @@ input {
   outline: none;
   width: 70%;
   font-size: 20px;
+  color: #282828;
 }
 
 input:-webkit-autofill {
@@ -238,5 +245,61 @@ a:hover {
   .google-login {
     height: 20px;
     width: 16px;
+  }
+
+  .login-button {
+    padding: 25%;
+    width: 150%;
+    font-size: 10px;
+  }
+
+  input {
+    border: none;
+    border-bottom: 2px solid silver;
+    padding: 2px;
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    outline: none;
+    width: 60%;
+    font-size: 10px;
+  }
+
+  input:-webkit-autofill {
+    border: none;
+    border-bottom: 2px solid silver;
+    padding: 2px;
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    outline: none;
+    width: 60%;
+    font-size: 10px;
+  }
+  
+  input:focus {
+    border-bottom: 2px solid #ff6f00;
+    transition: 0.3s ease;
+  }
+
+  .register-question {
+    position: absolute;
+    right: 8%;
+    text-align: center;
+    bottom: 8%;
+    font-family: "Indie Flower", cursive;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 55%;
+  }
+
+  a {
+    position: relative;
+    bottom: 15px;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: bold;
+    color: #ff6f00;
+    font-family: "Indie Flower", cursive;
   }
 }
