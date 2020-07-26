@@ -6,20 +6,20 @@ const app = express();
 app.use(express.static('static'));
 app.use(express.static('controller'));
 app.set('view engine', 'ejs');
-const PORT = 3000;
+const PORT = (process.env.PORT || 3000);
 
 app.listen(PORT, () => {
     console.log(`App is listening on PORT ${PORT}`);
 })
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
     res.render('login');
 });
 
-app.get("/signup", (req, res) => {
+app.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-app.post("/main", (req, res) => {
+app.post('/main', (req, res) => {
     res.render('main');
 });
