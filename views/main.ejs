@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include('header.ejs'); %>
+
 <body>
-    
+    <div id="main-content">
+        <header class="main-header">
+            <h1 class="main-hello-title">Hello torcsi!</h1>
+            <h1 class="main-header-title">Linote</h1>
+        </header>
+
+        <button title="Create a new note" type="submit" class="add-button">+</button>
+
+        <form action="/">
+            <div class="logout-button-div">
+                <button title="Log out" type="submit" class="logout-button"><img class="logout-icon"
+                        src="logout.png"></button>
+            </div>
+        </form>
+    </div>
 </body>
+
 </html>

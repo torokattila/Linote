@@ -4,11 +4,14 @@ html {
     rgba(254, 245, 234, 1) 0%,
     rgba(255, 231, 204, 1) 90%
   );
-  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
+}
+
+body {
+  margin: 0;
 }
 
 #content {
@@ -21,8 +24,12 @@ html {
 }
 
 @keyframes fadein {
-  from { opacity: 0}
-  to   { opacity: 1}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .main-title-div {
@@ -108,8 +115,44 @@ html {
   margin-top: 4%;
 }
 
-.inputs {
+.login-inputs {
   margin-top: 10%;
+}
+
+#main-content {
+  display: grid;
+  animation: fadein 1s;
+}
+
+.main-header {
+  font-family: "Indie Flower", cursive;
+  clear: both;
+  background: #ffe259; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffa751,
+    #ffe259
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffa751,
+    #ffe259
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.59);
+}
+
+.main-hello-title {
+  float: left;
+  margin-left: 20px;
+  color: white;
+}
+
+.main-header-title {
+  float: right;
+  margin-right: 20px;
+  line-height: 4px;
+  font-size: 50px;
+  color: #ff6f00;
 }
 
 input {
@@ -142,7 +185,7 @@ input:focus {
 
 .button-div {
   position: absolute;
-  bottom:11%;
+  bottom: 11%;
   left: 15%;
 }
 
@@ -157,12 +200,20 @@ input:focus {
   cursor: pointer;
   text-transform: uppercase;
   box-shadow: 0px 5px 10px -4px rgba(0, 0, 0, 0.59);
-  background-image: linear-gradient( 68.1deg,  rgba(255,200,69,1) -0.3%, rgba(239,69,115,1) 100.2% );
+  background-image: linear-gradient(
+    68.1deg,
+    rgba(255, 200, 69, 1) -0.3%,
+    rgba(239, 69, 115, 1) 100.2%
+  );
 }
 
 .login-button:hover {
   box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.59);
-  background-image: linear-gradient( 68.1deg,  rgba(255,170,69,1) -0.3%, rgba(255,69,75,1) 100.2% );
+  background-image: linear-gradient(
+    68.1deg,
+    rgba(255, 170, 69, 1) -0.3%,
+    rgba(255, 69, 75, 1) 100.2%
+  );
 }
 
 .register-question {
@@ -186,6 +237,117 @@ a {
 
 a:hover {
   color: #974200;
+}
+
+.add-button {
+  display: inline-block;
+  margin-left: 4%;
+  margin-top: 4%;
+  padding: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
+  background: #ffe259;
+  background: -webkit-linear-gradient(to right, #ffa751, #ffe259);
+  background: linear-gradient(to right, #ffa751, #ffe259);
+  font-size: 250%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  line-height: 0px;
+}
+
+.add-button:hover {
+  background: #ffe259;
+  background: -webkit-linear-gradient(
+    to right,
+    #fc9d3f,
+    #fcda34
+  );
+  background: linear-gradient(
+    to right,
+    #fc9d3f,
+    #fcda34
+  );
+}
+
+.add-button:active {
+  background: #ffe259;
+  background: -webkit-linear-gradient(
+    to right,
+    #fc8d1f,
+    #fad51c
+  );
+  background: linear-gradient(
+    to right,
+    #fc8d1f,
+    #fad51c
+  );
+}
+
+.logout-button-div {
+  position: fixed;
+  bottom: 10%;
+  right: 8%;
+}
+
+.logout-button {
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 20px;
+  width: 70px;
+  height: 70px;
+  outline: none;
+  position: relative;
+  float: right;
+  background: #ffe259;
+  background: -webkit-linear-gradient(to right, #ffa751, #ffe259);
+  background: linear-gradient(to right, #ffa751, #ffe259);
+  box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
+}
+
+.logout-button:hover {
+  background: #ffe259;
+  background: -webkit-linear-gradient(
+    to right,
+    #fc9d3f,
+    #fcda34
+  );
+  background: linear-gradient(
+    to right,
+    #fc9d3f,
+    #fcda34
+  );
+}
+
+.logout-button:active {
+  background: #ffe259;
+  background: -webkit-linear-gradient(
+    to right,
+    #fc8d1f,
+    #fad51c
+  );
+  background: linear-gradient(
+    to right,
+    #fc8d1f,
+    #fad51c
+  );
+}
+
+.logout-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  width: 35px;
+  height: 35px;
+  display: block;
 }
 
 @media only screen and (max-width: 760px) {
@@ -248,9 +410,9 @@ a:hover {
   }
 
   .login-button {
-    padding: 25%;
-    width: 150%;
-    font-size: 10px;
+    padding: 23%;
+    width: 146%;
+    font-size: 8px;
   }
 
   input {
@@ -274,7 +436,7 @@ a:hover {
     width: 60%;
     font-size: 10px;
   }
-  
+
   input:focus {
     border-bottom: 2px solid #ff6f00;
     transition: 0.3s ease;
@@ -301,5 +463,56 @@ a:hover {
     font-weight: bold;
     color: #ff6f00;
     font-family: "Indie Flower", cursive;
+  }
+
+  #main-content {
+    display: grid;
+    font-family: "Indie Flower", cursive;
+  }
+
+  .main-header-title {
+    float: right;
+    margin-right: 20px;
+    font-size: 35px;
+    position: relative;
+    top: 25%;
+  }
+
+  .main-header {
+    color: white;
+    clear: both;
+  }
+
+  .main-hello-title {
+    float: left;
+    margin-left: 20px;
+  }
+
+  .add-button {
+    margin-left: 7%;
+    margin-top: 8%;
+    width: 50px;
+    height: 50px;
+    font-size: 190%;
+    padding: 10px;
+  }
+
+  .logout-button-div {
+    position: fixed;
+    bottom: 5%;
+    right: 10%;
+  }
+
+  .logout-button {
+    padding: 15px;
+    width: 57px;
+    height: 57px;
+  }
+
+  .logout-icon {
+    transform: translate(-50%, -50%);
+    width: 27px;
+    height: 27px;
+    display: block;
   }
 }

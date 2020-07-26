@@ -19,3 +19,7 @@ app.get("/", (req, res) => {
 app.get("/signup", (req, res) => {
     res.render('signup');
 });
+
+app.post("/main", (req, res) => {
+    res.render('main');
+});
