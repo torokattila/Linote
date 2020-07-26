@@ -478,7 +478,6 @@ a:hover {
       rgba(254, 245, 234, 1) 0%,
       rgba(255, 231, 204, 1) 90%
     );
-    background-repeat: no-repeat;
     background-size: cover;
   }
 
