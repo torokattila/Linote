@@ -1,12 +1,3 @@
-$(document).ready(function () {
-    var colors = ['#fff740', '#ef820d', '#fda50f', '#cf9812a'];
-
-    $('.note').each(function () {
-        var newColor = colors[Math.floor(Math.random() * colors.length)];
-        $(this).css('background-color', newColor)
-    });
-});
-
 window.onscroll = () => {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
         if (((window.innerHeight + window.scrollY) >= document.body.offsetHeight)) {
@@ -19,9 +10,15 @@ window.onscroll = () => {
 
 const addButton = document.querySelector('.add-button');
 
+
 addButton.addEventListener("click", () => {
+
+    const colors = ['#fff740', '#ef820d', '#fda50f', '#cf9812a'];
+    const newColor = colors[Math.floor(Math.random() * colors.length)];
+
     let noteContainer = document.querySelector('.note-container');
     let newNoteDiv = document.createElement('div');
+    newNoteDiv.style.backgroundColor = newColor;
     let noteTitleDiv = document.createElement('div');
     let titleInput = document.createElement('input');
     let textArea = document.createElement('textarea');
@@ -63,6 +60,8 @@ addButton.addEventListener("click", () => {
     newNoteDiv.appendChild(buttonsOnNote);
     newNoteDiv.style.opacity = 0;
 
+    $(newNoteDiv).draggable({ cursor: "move", containment: "parent" });
+
     let steps = 0;
     let timer = setInterval(() => {
         steps++;
@@ -74,5 +73,6 @@ addButton.addEventListener("click", () => {
         }
     }, 12);
     noteContainer.appendChild(newNoteDiv);
-    
+
 });
+
