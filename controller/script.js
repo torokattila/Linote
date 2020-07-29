@@ -9,15 +9,13 @@ window.onscroll = () => {
 }
 
 const addButton = document.querySelector('.add-button');
-
-
 addButton.addEventListener("click", () => {
 
     const colors = ['#fff740', '#ef820d', '#fda50f', '#cf9812a'];
     const newColor = colors[Math.floor(Math.random() * colors.length)];
 
-    let noteContainer = document.querySelector('.note-container');
-    let newNoteDiv = document.createElement('div');
+    let noteContainer = document.querySelector('#note-container');
+    let newNoteDiv = document.createElement('li');
     newNoteDiv.style.backgroundColor = newColor;
     let noteTitleDiv = document.createElement('div');
     let titleInput = document.createElement('input');
@@ -60,8 +58,6 @@ addButton.addEventListener("click", () => {
     newNoteDiv.appendChild(buttonsOnNote);
     newNoteDiv.style.opacity = 0;
 
-    $(newNoteDiv).draggable({ cursor: "move", containment: "parent" });
-
     let steps = 0;
     let timer = setInterval(() => {
         steps++;
@@ -72,7 +68,46 @@ addButton.addEventListener("click", () => {
             timer = undefined;
         }
     }, 12);
-    noteContainer.appendChild(newNoteDiv);
 
+    noteContainer.appendChild(newNoteDiv);
 });
+
+
+$(function () {
+    var $srcElement;
+    var srcIndex, dstIndex;
+
+    $("#note-container>li").dragdrop({
+        makeClone: true,
+        sourceHide: true,
+        dragClass: "shadow",
+        canDrag: function ($src, event) {
+            $srcElement = $src;
+            srcIndex = $srcElement.index();
+            dstIndex = srcIndex;
+            return $src;
+        },
+        canDrop: function ($dst) {
+            if ($dst.is("li")) {
+                dstIndex = $dst.index();
+                if (srcIndex < dstIndex)
+                    $srcElement.insertAfter($dst);
+                else
+                    $srcElement.insertBefore($dst);
+            }
+            return true;
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
 
