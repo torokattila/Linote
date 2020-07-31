@@ -14,7 +14,7 @@ addButton.addEventListener("click", () => {
     const colors = ['#fff740', '#ef820d', '#fda50f', '#cf9812a'];
     const newColor = colors[Math.floor(Math.random() * colors.length)];
 
-    let noteContainer = document.querySelector('#note-container');
+    let noteContainer = document.querySelector('#notecontainer');
     let newNoteDiv = document.createElement('li');
     newNoteDiv.style.backgroundColor = newColor;
     let noteTitleDiv = document.createElement('div');
@@ -72,34 +72,9 @@ addButton.addEventListener("click", () => {
     noteContainer.appendChild(newNoteDiv);
 });
 
-
-$(function () {
-    var $srcElement;
-    var srcIndex, dstIndex;
-
-    $("#note-container>li").dragdrop({
-        makeClone: true,
-        sourceHide: true,
-        dragClass: "shadow",
-        canDrag: function ($src, event) {
-            $srcElement = $src;
-            srcIndex = $srcElement.index();
-            dstIndex = srcIndex;
-            return $src;
-        },
-        canDrop: function ($dst) {
-            if ($dst.is("li")) {
-                dstIndex = $dst.index();
-                if (srcIndex < dstIndex)
-                    $srcElement.insertAfter($dst);
-                else
-                    $srcElement.insertBefore($dst);
-            }
-            return true;
-        }
-    });
+Sortable.create(notecontainer, {
+    animation: 100
 });
-
 
 
 

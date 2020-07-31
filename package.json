@@ -22,6 +22,10 @@
     "ejs": "^3.1.3",
     "express": "^4.17.1",
     "interactjs": "^1.9.20",
-    "jquery.pep.js": "^0.6.10"
+    "jquery.pep.js": "^0.6.10",
+    "sortablejs": "^1.10.2"
+  },
+  "devDependencies": {
+    "jquery-sortablejs": "^1.0.1"
   }
 }
