@@ -9,7 +9,7 @@ window.onscroll = () => {
 }
 
 const addButton = document.querySelector('.add-button');
-addButton.addEventListener("click", () => {
+addButton.addEventListener("click", (event) => {
 
     const colors = ['#fff740', '#ef820d', '#fda50f', '#cf9812a'];
     const newColor = colors[Math.floor(Math.random() * colors.length)];
@@ -68,6 +68,9 @@ addButton.addEventListener("click", () => {
             timer = undefined;
         }
     }, 12);
+    
+    noteContainer.appendChild(newNoteDiv);
+    event.preventDefault();
 });
 
 Sortable.create(notecontainer, {
