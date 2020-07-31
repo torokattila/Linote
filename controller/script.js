@@ -68,16 +68,11 @@ addButton.addEventListener("click", () => {
             timer = undefined;
         }
     }, 12);
-
-    noteContainer.appendChild(newNoteDiv);
 });
 
 Sortable.create(notecontainer, {
     animation: 100
 });
-
-
-
 
 
 
