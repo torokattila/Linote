@@ -73,7 +73,7 @@ addButton.addEventListener("click", (event) => {
     event.preventDefault();
 
     $(deleteButton).click(function() {
-        $(newNoteDiv).fadeOut("slow", function() {
+        $(newNoteDiv).fadeOut(500, function() {
             $(this).remove();
         });
     });
