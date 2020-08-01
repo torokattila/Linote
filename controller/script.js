@@ -68,9 +68,15 @@ addButton.addEventListener("click", (event) => {
             timer = undefined;
         }
     }, 12);
-    
+
     noteContainer.appendChild(newNoteDiv);
     event.preventDefault();
+
+    $(deleteButton).click(function() {
+        $(newNoteDiv).fadeOut("slow", function() {
+            $(this).remove();
+        });
+    });
 });
 
 Sortable.create(notecontainer, {
