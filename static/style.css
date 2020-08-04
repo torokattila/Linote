@@ -495,6 +495,21 @@ ul {
   font-family: "Indie Flower", cursive;
 }
 
+.signup-inputs {
+  margin-top: 10%;
+}
+
+.show-pw {
+  width: 40px;
+  height: 30px;
+  position: absolute;
+  right: 80px;
+}
+
+.show-pw:hover {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 760px) {
   html {
     background-image: radial-gradient(
@@ -570,6 +585,7 @@ ul {
     width: 60%;
     font-size: 10px;
   }
+
 
   .form-input:-webkit-autofill {
     border: none;
@@ -735,5 +751,12 @@ ul {
     font-weight: bold; 
     font-size: 12px;
     font-family: "Indie Flower", cursive;
+  }
+
+  .show-pw {
+    width: 20px;
+    height: 14px;
+    position: absolute;
+    right: 20%;
   }
 }

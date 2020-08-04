@@ -8,6 +8,14 @@ window.onscroll = () => {
     }
 }
 
+$('.show-pw').on('touchstart mousedown', function() {
+    $(this).prev().attr('type', 'text');
+}).mouseup(function() {
+    $(this).prev().attr('type', 'password');
+}).mouseout(function() {
+    $(this).prev().attr('type', 'password');
+})
+
 const addButton = document.querySelector('.add-button');
 addButton.addEventListener("click", (event) => {
 
@@ -72,8 +80,8 @@ addButton.addEventListener("click", (event) => {
     noteContainer.appendChild(newNoteDiv);
     event.preventDefault();
 
-    $(deleteButton).click(function() {
-        $(newNoteDiv).fadeOut(500, function() {
+    $(deleteButton).click(function () {
+        $(newNoteDiv).fadeOut(500, function () {
             $(this).remove();
         });
     });
@@ -82,6 +90,7 @@ addButton.addEventListener("click", (event) => {
 Sortable.create(notecontainer, {
     animation: 100
 });
+
 
 
 
