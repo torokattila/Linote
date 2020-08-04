@@ -7,7 +7,7 @@
         </div>
 
         <div>
-            <form action="/main" method="POST" autocomplete="off">
+            <form action="/signup" method="POST" autocomplete="on">
                 <div class="login-div">
 
                     <div class="upperline">
@@ -21,18 +21,22 @@
 
                         <div class="signup-inputs">
                             <div class="login-credentials">
-                                <input class="form-input" type="text" name="signup-username" id="login-email" placeholder="Username" required>
+                                <input class="form-input" type="text" name="signup-username" id="signup-username"
+                                    placeholder="Username" required>
 
                             </div>
                             <div class="login-credentials">
-                                <input class="form-input" type="email" name="signup-email" id="signup-email" placeholder="Email" required>
-
-                            </div>
-                            <div class="login-credentials">
-                                <input class="form-input" type="password" name="signup-password" id="signup-password" placeholder="Password"
-                                    required>
+                                <input class="form-input" type="password" name="signup-password" id="signup-password"
+                                    placeholder="Password" required>
                             </div>
                         </div>
+
+                        <div class="error-div">
+                            <% if(message.length > 0) { %>
+                                <span class="error-message"><%= message %></span>
+                            <% } %>
+                        </div>
+                        
                     </div>
                     <div class="register-question">
                         <a href="/">Back to the login</a>

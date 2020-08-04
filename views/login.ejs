@@ -7,7 +7,7 @@
         </div>
 
         <div>
-            <form action="/main" method="POST" autocomplete="off">
+            <form action="/" method="POST" autocomplete="off">
                 <div class="login-div">
 
                     <div class="upperline">
@@ -26,8 +26,14 @@
                             <div class="login-credentials">
                                 <input class="form-input" type="password" name="login-password" id="login-password" placeholder="Password" required>
                             </div>
-                            
                         </div>
+
+                        <div class="error-div">
+                            <% if(message.length > 0) { %>
+                                <span class="error-message"><%= message %></span>
+                            <% } %>
+                        </div>
+
                     </div>
                     <div class="register-question">
                         <p>Haven't registered yet?</p>

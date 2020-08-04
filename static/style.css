@@ -483,6 +483,18 @@ ul {
   color: black;
 }
 
+.error-div {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.error-message {
+  color:red; 
+  font-weight: bold; 
+  font-size: 22px;
+  font-family: "Indie Flower", cursive;
+}
+
 @media only screen and (max-width: 760px) {
   html {
     background-image: radial-gradient(
@@ -712,5 +724,16 @@ ul {
     outline: none;
     font-weight: bold;
     font-size: 12px;
+  }
+
+  .error-div {
+    margin-top: 10px;
+  }
+
+  .error-message {
+    color:red; 
+    font-weight: bold; 
+    font-size: 12px;
+    font-family: "Indie Flower", cursive;
   }
 }
