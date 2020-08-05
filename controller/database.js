@@ -5,5 +5,6 @@ module.exports = {
         'password': 'vilonya1'
     },
     'database': 'linote',
-    'user_table': 'user'
+    'user_table': 'user',
+    'note_table': 'note'
 }

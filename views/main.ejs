@@ -7,20 +7,56 @@
             <h1 class="main-header-title">Linote</h1>
         </header>
 
-        <form action="/main" method="post">
-            <button title="Create a new note" type="submit" class="add-button">+</button>
-        </form>
-        
+        <div class="notes-container">
+            <form action="/add" method="post">
+                <div class="new-note-div">
+                    <div class="new-note-title-div">
+                        <input type="hidden" name="newNoteId">
+                        <input type="text" class="new-note-title-input" name="newNoteTitleInput" placeholder="Title:">
+                        <textarea name="newNoteTextarea" class="new-note-textarea" cols="15" rows="7"
+                            placeholder="Content:"></textarea>
+                    </div>
+                    <div>
+                        <button title="Create a new note" type="submit" class="add-button">+</button>
+                    </div>
+                </div>
+            </form>
 
-        <ul id="notecontainer">
-        </ul>
+            <div class="note-list">
+                <ul class="notecontainer">
+                    <% for (var key in notesArray) { %>
+                    <li class="note">
+                        <div class="note-title-div">
+                            <input type="text" class="note-title" name="" placeholder="Title"
+                                value="<%=notesArray[key].title%>">
+                            <textarea class="note-textarea" name="" cols="15" rows="5" class="note-textarea"
+                                placeholder="Content:"><%=notesArray[key].content%></textarea>
+                        </div>
+                        <div class="buttons-on-note">
+                            <form action="/delete/:noteId" method="post">
+                                <input type="hidden" name="noteId" value="<%=notesArray[key].note_id%>">
+                                <button type="submit" title="Delete Note" class="delete-button"
+                                    onclick="return confirm('Are you sure you want to delete this note?');"><img
+                                        class="delete-icon" src="delete.png"></button>
+                            </form>
+                            <button type="submit" title="Voice Recognition" class="voice-button"><img src="voice.png"
+                                    class="voice-icon"></button>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
 
-        <form action="/logout">
-            <div class="logout-button-div">
-                <button title="Log out" type="submit" class="logout-button"><img class="logout-icon"
-                        src="logout.png"></button>
             </div>
-        </form>
+
+            <form action="/logout">
+                <div class="logout-button-div">
+                    <button title="Log out" type="submit" class="logout-button"
+                        onclick="return confirm('Are you sure you want to log out?');"><img class="logout-icon"
+                            src="logout.png"></button>
+                </div>
+            </form>
+        </div>
+
     </div>
     <script src="script.js"></script>
 </body>

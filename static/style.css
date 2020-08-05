@@ -236,8 +236,8 @@ a:hover {
 
 .add-button {
   display: inline-block;
-  margin-left: 4%;
-  margin-top: 4%;
+  margin-left: -4%;
+  margin-top: -4%;
   padding: 20px;
   width: 60px;
   height: 60px;
@@ -317,7 +317,7 @@ a:hover {
   display: block;
 }
 
-#notecontainer {
+.notecontainer {
   display: grid;
   grid-gap: 40px;
   grid-template-columns: repeat(auto-fit, 350px);
@@ -510,6 +510,91 @@ ul {
   cursor: pointer;
 }
 
+.new-note-div {
+  position: absolute;
+  margin-top: 4%;
+  margin-left: 3%;
+  width: 350px;
+  height: 230px;
+  background-color: #f3aa00;
+  cursor: pointer;
+  transition: 0.3s;
+  transform: rotate(-4deg);
+  -o-transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+  -moz-transform: rotate(-4deg);
+  box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
+}
+
+.new-note-div:hover {
+  transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  width: 400px;
+  height: 270px;
+  box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
+}
+
+.new-note-div:active {
+  transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  width: 400px;
+  height: 270px;
+  transition: none;
+  box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
+}
+
+.new-note-title-input {
+  position: absolute;
+  margin-left: 14%;
+  width: 73%;
+  font-family: "Indie Flower", cursive;
+  border: none;
+  background: transparent;
+  color: black;
+  padding: 10px;
+  outline: none;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.new-note-title-input::placeholder {
+  color: black;
+  opacity: 0.5;
+}
+
+.new-note-textarea {
+  font-family: "Indie Flower", cursive;
+  border: none;
+  background: transparent;
+  position: absolute;
+  color: black;
+  margin-left: 16%;
+  margin-top: 15%;
+  outline: none;
+  font-weight: bold;
+  font-size: 18px;
+  resize: none;
+  width: 72%;
+}
+
+.new-note-textarea::placeholder {
+  color: black;
+  opacity: 0.5;
+}
+
+.notes-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-list {
+  margin-top: 23%;
+}
+
 @media only screen and (max-width: 760px) {
   html {
     background-image: radial-gradient(
@@ -643,10 +728,8 @@ ul {
   }
 
   .add-button {
-    margin-left: 7%;
-    margin-top: 8%;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     font-size: 190%;
     padding: 10px;
   }
@@ -670,7 +753,8 @@ ul {
     display: block;
   }
 
-  #notecontainer {
+  .notecontainer {
+    margin-top: 55%;
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -758,5 +842,91 @@ ul {
     height: 14px;
     position: absolute;
     right: 20%;
+  }
+
+  .new-note-div {
+    position: absolute;
+    display: inline-block;
+    margin-top: 14%;
+    margin-left: 8%;
+    width: 260px;
+    height: 160px;
+    background-color: #f3aa00;
+    cursor: pointer;
+    transition: 0.3s;
+    transform: rotate(-4deg);
+    -o-transform: rotate(-4deg);
+    -webkit-transform: rotate(-4deg);
+    -moz-transform: rotate(-4deg);
+    box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
+  }
+  
+  .new-note-div:hover {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    width: 268px;
+    height: 190px;
+    box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
+  }
+  
+  .new-note-div:active {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    width: 268px;
+    height: 190px;
+    transition: 0.3s;
+    box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
+  }
+  
+  .new-note-title-input {
+    position: absolute;
+    margin-left: 14%;
+    width: 73%;
+    font-family: "Indie Flower", cursive;
+    border: none;
+    background: transparent;
+    color: black;
+    padding: 10px;
+    outline: none;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .new-note-title-input::placeholder {
+    color: black;
+    opacity: 0.5;
+  }
+  
+  .new-note-textarea {
+    font-family: "Indie Flower", cursive;
+    border: none;
+    background: transparent;
+    position: absolute;
+    color: black;
+    margin-left: 16%;
+    margin-top: 15%;
+    outline: none;
+    font-weight: bold;
+    font-size: 12px;
+    resize: none;
+    width: 72%;
+  }
+  
+  .new-note-textarea::placeholder {
+    color: black;
+    opacity: 0.5;
+  }
+  
+  .notes-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .note-list {
+    margin-top: 23%;
   }
 }

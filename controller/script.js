@@ -8,15 +8,15 @@ window.onscroll = () => {
     }
 }
 
-$('.show-pw').on('touchstart mousedown', function() {
+$('.show-pw').on('touchstart mousedown', function () {
     $(this).prev().attr('type', 'text');
-}).mouseup(function() {
+}).mouseup(function () {
     $(this).prev().attr('type', 'password');
-}).mouseout(function() {
+}).mouseout(function () {
     $(this).prev().attr('type', 'password');
 })
 
-const addButton = document.querySelector('.add-button');
+/* const addButton = document.querySelector('.add-button');
 addButton.addEventListener("click", (event) => {
 
     const colors = ['#fff740', '#ef820d', '#fda50f', '#cf9812a'];
@@ -81,21 +81,28 @@ addButton.addEventListener("click", (event) => {
     event.preventDefault();
 
     $(deleteButton).click(function () {
+        let confirmation = confirm('Are you sure you want to delete this note?');
+
+        if (confirmation) {
+            $(newNoteDiv).fadeOut(500, function () {
+                $(this).remove();
+            });
+        }
+    });
+}); */
+
+$('#delete-button').click(function () {
+    let confirmation = confirm('Are you sure you want to delete this note?');
+
+    if (confirmation) {
         $(newNoteDiv).fadeOut(500, function () {
             $(this).remove();
         });
-    });
+    }
 });
 
-Sortable.create(notecontainer, {
-    animation: 100
+var noteContainer = document.querySelector(".notecontainer");
+
+Sortable.create(noteContainer, {
+    animation: 500
 });
-
-
-
-
-
-
-
-
-
