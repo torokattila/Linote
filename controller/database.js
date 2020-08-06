@@ -1,10 +1,21 @@
+const passport = require('passport');
+
+require('dotenv').config();
+
+const hostname = process.env.HOST;
+const user = process.env.USER;
+const password = process.env.PASSWORD;
+const database = process.env.DATABASE;
+const user_table = process.env.USER_TABLE;
+const note_table = process.env.NOTE_TABLE;
+
 module.exports = {
     'connection': {
-        'host': 'localhost',
-        'user': 'root',
-        'password': 'vilonya1'
+        'host': hostname,
+        'user': user,
+        'password': password
     },
-    'database': 'linote',
-    'user_table': 'user',
-    'note_table': 'note'
+    'database': database,
+    'user_table': user_table,
+    'note_table': note_table
 }
