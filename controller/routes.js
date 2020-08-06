@@ -120,6 +120,28 @@ module.exports = function (app, passport) {
         res.redirect('/main');
     });
 
+    app.post('/edit/:noteId', isLoggedIn, function(req, res) {
+        let user = req.user;
+        let noteId = req.body.noteId;
+        let noteTitle = req.body.noteTitle;
+        let noteContent = req.body.noteContent;
+
+        conn.query("SELECT user_id, note_id FROM note JOIN user ON note.user_id = user.id WHERE user_id = ?", [user.id], function (err, rows) {
+            if (err) {
+                console.log(err);
+            }
+            conn.query("UPDATE note SET title = ?, content = ? WHERE note_id = ?", [noteTitle, noteContent, noteId], (err, rows) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    return rows;
+                }
+            });
+        });
+
+        res.redirect('/main');
+    });
+
     app.get('/logout', function (req, res) {
         req.logout();
         res.redirect('/');

@@ -27,10 +27,14 @@
                     <% for (var key in notesArray) { %>
                     <li class="note">
                         <div class="note-title-div">
-                            <input type="text" class="note-title" name="" placeholder="Title"
-                                value="<%=notesArray[key].title%>">
-                            <textarea class="note-textarea" name="" cols="15" rows="5" class="note-textarea"
-                                placeholder="Content:"><%=notesArray[key].content%></textarea>
+                            <form class="editForm" action="/edit/:noteId" method="post">
+                                <input type="hidden" name="noteId" value="<%=notesArray[key].note_id%>">
+                                <input type="text" class="note-title" name="noteTitle" placeholder="Title"
+                                    value="<%=notesArray[key].title%>">
+                                <textarea class="note-textarea" name="noteContent" cols="15" rows="5" class="note-textarea"
+                                    placeholder="Content:"><%=notesArray[key].content%></textarea>
+                                <button type="submit" class="edit-button" title="Edit note"><img class="edit-icon" src="edit-icon.png"></button>
+                            </form>
                         </div>
                         <div class="buttons-on-note">
                             <form class="deleteForm" action="/delete/:noteId" method="post">
@@ -40,6 +44,7 @@
                             </form>
                             <button type="submit" title="Voice Recognition" class="voice-button"><img src="voice.png"
                                     class="voice-icon"></button>
+                            
                         </div>
                     </li>
                     <% } %>

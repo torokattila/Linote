@@ -452,6 +452,46 @@ ul {
   );
 }
 
+.edit-button {
+  position: relative;
+  margin-right: 10px;
+  outline: none;
+  float: right;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 6px;
+  width: 52px;
+  box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgb(235, 174, 82) 0%,
+    rgb(255, 225, 55) 90%
+  );
+}
+
+.edit-button:hover {
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgb(233, 142, 5) 0%,
+    rgb(253, 215, 0) 90%
+  );
+}
+
+.edit-button:active {
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgb(179, 107, 0) 0%,
+    rgb(233, 199, 5) 90%
+  );
+}
+
+.edit-icon {
+  margin-top: 3px;
+  width: 37px;
+  height: 37px;
+}
+
 .note-title {
   font-family: "Indie Flower", cursive;
   border: none;
@@ -813,6 +853,47 @@ ul {
   .delete-icon {
     width: 25px;
     height: 25px;
+  }
+
+  .edit-button {
+    position: relative;
+    margin-left: 2%;
+    margin-top: 10%;
+    outline: none;
+    float: right;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 4px;
+    width: 45px;
+    box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgb(235, 174, 82) 0%,
+      rgb(255, 225, 55) 90%
+    );
+  }
+  
+  .edit-button:hover {
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgb(233, 142, 5) 0%,
+      rgb(253, 215, 0) 90%
+    );
+  }
+  
+  .edit-button:active {
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgb(179, 107, 0) 0%,
+      rgb(233, 199, 5) 90%
+    );
+  }
+  
+  .edit-icon {
+    margin-top: 5px;
+    width: 31px;
+    height: 29px;
   }
 
   .note-title {

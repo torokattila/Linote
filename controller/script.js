@@ -52,6 +52,23 @@ $('.logoutForm').on('click', function (event) {
     });
 })
 
+$('.editForm').on('submit', function (event) {
+    event.preventDefault();
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "Are you sure you want to edit this note?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: 'orange',
+        cancelButtonColor: '#f0928c',
+        confirmButtonText: 'Yes, edit!'
+    }).then((result) => {
+        if (result.value) {
+            $(this).unbind('submit').submit();
+        }
+    });
+})
+
 var noteContainer = document.querySelector(".notecontainer");
 
 Sortable.create(noteContainer, {
