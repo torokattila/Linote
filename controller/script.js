@@ -16,90 +16,41 @@ $('.show-pw').on('touchstart mousedown', function () {
     $(this).prev().attr('type', 'password');
 })
 
-/* const addButton = document.querySelector('.add-button');
-addButton.addEventListener("click", (event) => {
+const colors = ['#fff740', '#ef820d', '#fda50f', '#cf9812a'];
+const newColor = colors[Math.floor(Math.random() * colors.length)];
 
-    const colors = ['#fff740', '#ef820d', '#fda50f', '#cf9812a'];
-    const newColor = colors[Math.floor(Math.random() * colors.length)];
+$('.deleteForm').on('submit', function (event) {
+    event.preventDefault(),
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to delete this note?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: 'orange',
+            cancelButtonColor: '#f0928c',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                $(this).unbind('submit').submit();
+            }
+        });
+});
 
-    let noteContainer = document.querySelector('#notecontainer');
-    let newNoteDiv = document.createElement('li');
-    newNoteDiv.style.backgroundColor = newColor;
-    let noteTitleDiv = document.createElement('div');
-    let titleInput = document.createElement('input');
-    let textArea = document.createElement('textarea');
-    let buttonsOnNote = document.createElement('div');
-    let deleteButton = document.createElement('button');
-    let deleteIcon = document.createElement('img');
-    let voiceButton = document.createElement('button');
-    let voiceIcon = document.createElement('img');
-
-    newNoteDiv.className = 'note';
-    noteTitleDiv.className = 'note-title-div';
-    titleInput.className = 'note-title';
-    titleInput.setAttribute('type', 'text');
-    titleInput.setAttribute('name', 'note-title');
-    titleInput.setAttribute('placeholder', 'Title:');
-    textArea.className = 'note-textarea';
-    textArea.setAttribute('name', 'note-textarea');
-    textArea.setAttribute('cols', '15');
-    textArea.setAttribute('rows', '5');
-    textArea.setAttribute('placeholder', 'Content:');
-    deleteButton.setAttribute('type', 'submit');
-    deleteButton.setAttribute('title', 'Delete Note');
-    deleteButton.className = 'delete-button';
-    deleteIcon.className = 'delete-icon';
-    deleteIcon.setAttribute('src', 'delete.png');
-    voiceButton.setAttribute('type', 'submit');
-    voiceButton.setAttribute('title', 'Voice Recognition');
-    voiceButton.className = 'voice-button';
-    voiceIcon.setAttribute('src', 'voice.png');
-    voiceIcon.className = 'voice-icon';
-
-    newNoteDiv.appendChild(noteTitleDiv);
-    noteTitleDiv.appendChild(titleInput);
-    noteTitleDiv.appendChild(textArea);
-    deleteButton.appendChild(deleteIcon);
-    voiceButton.appendChild(voiceIcon);
-    buttonsOnNote.appendChild(deleteButton);
-    buttonsOnNote.appendChild(voiceButton);
-    newNoteDiv.appendChild(buttonsOnNote);
-    newNoteDiv.style.opacity = 0;
-
-    let steps = 0;
-    let timer = setInterval(() => {
-        steps++;
-        newNoteDiv.style.opacity = 0.1 * steps;
-
-        if (steps >= 20) {
-            clearInterval(timer);
-            timer = undefined;
-        }
-    }, 12);
-
-    noteContainer.appendChild(newNoteDiv);
-    event.preventDefault();
-
-    $(deleteButton).click(function () {
-        let confirmation = confirm('Are you sure you want to delete this note?');
-
-        if (confirmation) {
-            $(newNoteDiv).fadeOut(500, function () {
-                $(this).remove();
-            });
+$('.logoutForm').on('click', function (event) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "Do you want to log out?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: 'orange',
+        cancelButtonColor: '#f0928c',
+        confirmButtonText: 'Yes, log out!'
+    }).then((result) => {
+        if (result.value) {
+            $(this).unbind('submit').submit();
         }
     });
-}); */
-
-$('#delete-button').click(function () {
-    let confirmation = confirm('Are you sure you want to delete this note?');
-
-    if (confirmation) {
-        $(newNoteDiv).fadeOut(500, function () {
-            $(this).remove();
-        });
-    }
-});
+})
 
 var noteContainer = document.querySelector(".notecontainer");
 

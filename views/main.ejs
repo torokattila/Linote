@@ -8,7 +8,7 @@
         </header>
 
         <div class="notes-container">
-            <form action="/add" method="post">
+            <form action="/add" id="addNote" method="post">
                 <div class="new-note-div">
                     <div class="new-note-title-div">
                         <input type="hidden" name="newNoteId">
@@ -33,11 +33,10 @@
                                 placeholder="Content:"><%=notesArray[key].content%></textarea>
                         </div>
                         <div class="buttons-on-note">
-                            <form action="/delete/:noteId" method="post">
+                            <form class="deleteForm" action="/delete/:noteId" method="post">
                                 <input type="hidden" name="noteId" value="<%=notesArray[key].note_id%>">
-                                <button type="submit" title="Delete Note" class="delete-button"
-                                    onclick="return confirm('Are you sure you want to delete this note?');"><img
-                                        class="delete-icon" src="delete.png"></button>
+                                <button type="submit" title="Delete Note" class="delete-button"><img class="delete-icon"
+                                        src="delete.png"></button>
                             </form>
                             <button type="submit" title="Voice Recognition" class="voice-button"><img src="voice.png"
                                     class="voice-icon"></button>
@@ -48,17 +47,17 @@
 
             </div>
 
-            <form action="/logout">
+            <form action="/logout" method="get" class="logoutForm">
                 <div class="logout-button-div">
-                    <button title="Log out" type="submit" class="logout-button"
-                        onclick="return confirm('Are you sure you want to log out?');"><img class="logout-icon"
-                            src="logout.png"></button>
+                    <button title="Log out" type="button" class="logout-button"><img
+                            class="logout-icon" src="logout.png"></button>
                 </div>
             </form>
         </div>
 
     </div>
     <script src="script.js"></script>
+
 </body>
 
 </html>
