@@ -155,6 +155,14 @@ module.exports = function(app, passport) {
                 return rows;
             }
         });
+
+        conn.query("DELETE FROM note WHERE user_id = ?", [user.id], (err, rows) => {
+            if (err) {
+                console.log(err);
+            } else {
+                return rows;
+            }
+        });
     });
 
     app.get('/logout', function(req, res) {
