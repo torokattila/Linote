@@ -6,25 +6,25 @@ const conn = mysql.createConnection(dbconfig.connection);
 
 conn.query('USE ' + dbconfig.database);
 
-module.exports = function (app, passport) {
+module.exports = function(app, passport) {
     app.use(bodyParser.urlencoded({
         extended: true
     }));
 
-    app.get('/', function (req, res) {
+    app.get('/', function(req, res) {
         res.render('login.ejs', { message: req.flash('loginMessage') });
     });
 
-    app.get('/login', function (req, res) {
+    app.get('/login', function(req, res) {
         res.render('login.ejs', { message: req.flash('loginMessage') });
     });
 
     app.post('/login', passport.authenticate('local-login', {
-        successRedirect: '/main',
-        failureRedirect: '/',
-        failureFlash: true
-    }),
-        function (req, res) {
+            successRedirect: '/main',
+            failureRedirect: '/',
+            failureFlash: true
+        }),
+        function(req, res) {
             if (req.body.remember) {
                 req.session.cookie.maxAge = 1000 * 60 * 3;
             } else {
@@ -34,11 +34,11 @@ module.exports = function (app, passport) {
         });
 
     app.post('/', passport.authenticate('local-login', {
-        successRedirect: '/main',
-        failureRedirect: '/login',
-        failureFlash: true
-    }),
-        function (req, res) {
+            successRedirect: '/main',
+            failureRedirect: '/login',
+            failureFlash: true
+        }),
+        function(req, res) {
             if (req.body.remember) {
                 req.session.cookie.maxAge = 1000 * 60 * 3;
             } else {
@@ -47,7 +47,7 @@ module.exports = function (app, passport) {
             res.redirect('/');
         });
 
-    app.get('/signup', function (req, res) {
+    app.get('/signup', function(req, res) {
         res.render('signup.ejs', { message: req.flash('signupMessage') });
     });
 
@@ -58,10 +58,10 @@ module.exports = function (app, passport) {
     }));
 
 
-    app.get('/main', isLoggedIn, function (req, res) {
+    app.get('/main', isLoggedIn, function(req, res) {
         let noteArray = [];
         const user = req.user;
-        
+
         conn.query("SELECT note_id, title, content FROM note WHERE user_id = ?", [user.id], function(err, rows) {
             if (err) {
                 console.log(err);
@@ -72,7 +72,7 @@ module.exports = function (app, passport) {
             queryRows.forEach(row => {
                 noteArray.push(row);
             })
-            
+
             res.render('main', {
                 user: req.user,
                 note: req.note,
@@ -81,10 +81,10 @@ module.exports = function (app, passport) {
         });
 
 
-        
+
     });
 
-    app.post('/add', function (req, res) {
+    app.post('/add', function(req, res) {
         let user = req.user;
         let title = req.body.newNoteTitleInput;
         let content = req.body.newNoteTextarea;
@@ -96,15 +96,15 @@ module.exports = function (app, passport) {
                 return rows;
             }
         });
-        
+
         res.redirect('/main');
     });
 
-    app.post('/delete/:noteId', isLoggedIn, function (req, res) {
+    app.post('/delete/:noteId', isLoggedIn, function(req, res) {
         let user = req.user;
         let noteId = req.body.noteId;
 
-        conn.query("SELECT user_id, note_id FROM note JOIN user ON note.user_id = user.id WHERE user_id = ?", [user.id], function (err, rows) {
+        conn.query("SELECT user_id, note_id FROM note JOIN user ON note.user_id = user.id WHERE user_id = ?", [user.id], function(err, rows) {
             if (err) {
                 console.log(err);
             }
@@ -115,7 +115,7 @@ module.exports = function (app, passport) {
                     return rows;
                 }
             });
-        }); 
+        });
 
         res.redirect('/main');
     });
@@ -126,7 +126,7 @@ module.exports = function (app, passport) {
         let noteTitle = req.body.noteTitle;
         let noteContent = req.body.noteContent;
 
-        conn.query("SELECT user_id, note_id FROM note JOIN user ON note.user_id = user.id WHERE user_id = ?", [user.id], function (err, rows) {
+        conn.query("SELECT user_id, note_id FROM note JOIN user ON note.user_id = user.id WHERE user_id = ?", [user.id], function(err, rows) {
             if (err) {
                 console.log(err);
             }
@@ -142,7 +142,22 @@ module.exports = function (app, passport) {
         res.redirect('/main');
     });
 
-    app.get('/logout', function (req, res) {
+    app.post('/deleteAccount', (req, res) => {
+        let user = req.user;
+
+        req.logout();
+        res.redirect('/');
+
+        conn.query("DELETE FROM user WHERE id = ?", [user.id], (err, rows) => {
+            if (err) {
+                console.log(err);
+            } else {
+                return rows;
+            }
+        });
+    });
+
+    app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     })

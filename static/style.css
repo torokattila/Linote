@@ -1,902 +1,435 @@
 html {
-  background-image: radial-gradient(
-    circle farthest-corner at 50.4% 49.8%,
-    rgba(254, 245, 234, 1) 0%,
-    rgba(255, 231, 204, 1) 90%
-  );
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+    background-image: radial-gradient( circle farthest-corner at 50.4% 49.8%, rgba(254, 245, 234, 1) 0%, rgba(255, 231, 204, 1) 90%);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 body {
-  margin: 0;
+    margin: 0;
 }
 
 #content {
-  display: flex;
-  flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  animation: fadein 1s;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    animation: fadein 1s;
 }
 
 @keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .main-title-div {
-  margin-top: 25%;
+    margin-top: 25%;
 }
 
 .main-title {
-  font-family: "Indie Flower", cursive;
-  color: #ff6f00;
-  font-size: 120px;
-  text-align: center;
-  position: relative;
-  right: 60%;
-  margin-top: 20px;
+    font-family: "Indie Flower", cursive;
+    color: #ff6f00;
+    font-size: 120px;
+    text-align: center;
+    position: relative;
+    right: 60%;
+    margin-top: 20px;
 }
 
 .login-div {
-  background-color: white;
-  width: 40%;
-  height: 600px;
-  margin: 0;
-  border-radius: 1%;
-  box-shadow: 0px 5px 13px -4px rgba(0, 0, 0, 0.59);
-  top: 50%;
-  position: absolute;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.login-title {
-  font-family: "Indie Flower", cursive;
-  color: white;
-  font-size: 55px;
-  text-align: center;
-  bottom: 8%;
-  position: relative;
-}
-
-.upperline {
-  background-image: radial-gradient(
-    circle 873px at 99.5% 1.4%,
-    rgba(255, 167, 80, 1) 0.1%,
-    rgba(255, 106, 232, 1) 100.2%
-  );
-  position: absolute;
-  height: 35%;
-  width: 100%;
-}
-
-.icons {
-  position: relative;
-  bottom: 15%;
-}
-
-.facebook-login {
-  height: 35px;
-  width: 33px;
-  border: 5px solid white;
-  border-radius: 50%;
-  padding: 10px;
-}
-
-.facebook-login:hover {
-  border: 5px solid #ff6f00;
-  transition: 0.3s;
-}
-
-.google-login {
-  height: 35px;
-  width: 33px;
-  border: 5px solid white;
-  border-radius: 50%;
-  padding: 10px;
-}
-
-.google-login:hover {
-  border: 5px solid #ff6f00;
-  transition: 0.3s;
-}
-
-.login-credentials {
-  text-align: center;
-  margin-top: 4%;
-}
-
-.login-inputs {
-  margin-top: 10%;
-}
-
-#main-content {
-  display: grid;
-  animation: fadein 1s;
-}
-
-.main-header {
-  font-family: "Indie Flower", cursive;
-  clear: both;
-  background-image: radial-gradient(
-    circle farthest-corner at 3.1% 8.2%,
-    rgba(248, 250, 107, 1) 0%,
-    rgba(238, 148, 148, 1) 98.2%
-  );
-  box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.59);
-}
-
-.main-hello-title {
-  float: right;
-  margin-right: 20px;
-  color: white;
-}
-
-.main-header-title {
-  float: left;
-  margin-left: 20px;
-  line-height: 4px;
-  font-size: 50px;
-  color: #ff6f00;
-}
-
-.form-input {
-  font-family: "Indie Flower", cursive;
-  font-weight: bold;
-  border: none;
-  border-bottom: 2px solid silver;
-  padding: 10px;
-  box-shadow: 0 0 0 30px white inset !important;
-  -webkit-box-shadow: 0 0 0 30px white inset !important;
-  outline: none;
-  width: 70%;
-  font-size: 20px;
-  color: #282828;
-}
-
-.form-input:-webkit-autofill {
-  font-family: "Indie Flower", cursive;
-  font-weight: bold;
-  border: none;
-  border-bottom: 2px solid silver;
-  padding: 10px;
-  box-shadow: 0 0 0 30px white inset !important;
-  -webkit-box-shadow: 0 0 0 30px white inset !important;
-  outline: none;
-  width: 70%;
-  font-size: 20px;
-}
-
-.form-input:focus {
-  font-family: "Indie Flower", cursive;
-  font-weight: bold;
-  border-bottom: 3px solid #ff6f00;
-  transition: 0.3s ease;
-}
-
-.button-div {
-  position: absolute;
-  bottom: 11%;
-  left: 15%;
-}
-
-.login-button {
-  border: none;
-  padding: 24%;
-  width: 200%;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 15px;
-  color: white;
-  cursor: pointer;
-  text-transform: uppercase;
-  box-shadow: 0px 5px 10px -4px rgba(0, 0, 0, 0.59);
-  background-image: linear-gradient(
-    68.1deg,
-    rgba(255, 200, 69, 1) -0.3%,
-    rgba(239, 69, 115, 1) 100.2%
-  );
-  outline: none;
-}
-
-.login-button:hover {
-  box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.59);
-  background-image: linear-gradient(
-    68.1deg,
-    rgba(255, 170, 69, 1) -0.3%,
-    rgba(255, 69, 75, 1) 100.2%
-  );
-}
-
-.register-question {
-  position: absolute;
-  right: 15%;
-  text-align: center;
-  bottom: 8%;
-  font-family: "Indie Flower", cursive;
-  font-weight: bold;
-}
-
-a {
-  position: relative;
-  bottom: 15px;
-  text-decoration: none;
-  font-size: 25px;
-  font-weight: bold;
-  color: #ff6f00;
-  font-family: "Indie Flower", cursive;
-}
-
-a:hover {
-  color: #974200;
-}
-
-.add-button {
-  display: inline-block;
-  margin-left: -4%;
-  margin-top: -4%;
-  padding: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgba(251, 176, 64, 1) 0%,
-    rgba(251, 223, 64, 1) 90%
-  );
-  font-size: 250%;
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  line-height: 0px;
-}
-
-.add-button:hover {
-  background: #ffe259;
-  background: -webkit-linear-gradient(to right, #fc9d3f, #fcda34);
-  background: linear-gradient(to right, #fc9d3f, #fcda34);
-}
-
-.add-button:active {
-  background: #ffe259;
-  background: -webkit-linear-gradient(to right, #fc8d1f, #fad51c);
-  background: linear-gradient(to right, #fc8d1f, #fad51c);
-}
-
-.logout-button-div {
-  position: fixed;
-  bottom: 10%;
-  right: 8%;
-}
-
-.logout-button {
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
-  padding: 20px;
-  width: 70px;
-  height: 70px;
-  outline: none;
-  position: relative;
-  float: right;
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgba(251, 176, 64, 1) 0%,
-    rgba(251, 223, 64, 1) 90%
-  );
-  box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
-}
-
-.logout-button:hover {
-  background: #ffe259;
-  background: -webkit-linear-gradient(to right, #fc9d3f, #fcda34);
-  background: linear-gradient(to right, #fc9d3f, #fcda34);
-}
-
-.logout-button:active {
-  background: #ffe259;
-  background: -webkit-linear-gradient(to right, #fc8d1f, #fad51c);
-  background: linear-gradient(to right, #fc8d1f, #fad51c);
-}
-
-.logout-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 50%;
-  transform: translate(-50%, -50%);
-  width: 35px;
-  height: 35px;
-  display: block;
-}
-
-.notecontainer {
-  display: grid;
-  grid-gap: 40px;
-  grid-template-columns: repeat(auto-fit, 350px);
-  margin-top: 3%;
-  margin-left: 3%;
-  margin-bottom: 30px;
-  
-}
-
-ul {
-  padding: 0;
-  list-style-type: none;
-}
-
-.note {
-  width: 90%;
-  height: 200px;
-  background-color: #ffbf00;
-  cursor: pointer;
-  transition: 0.3s;
-  transform: rotate(-4deg);
-  -o-transform: rotate(-4deg);
-  -webkit-transform: rotate(-4deg);
-  -moz-transform: rotate(-4deg);
-  box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
-}
-
-.note:hover {
-  transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  width: 100%;
-  height: 230px;
-  box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
-}
-
-.note:active {
-  transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  transition: none;
-  width: 100%;
-  height: 230px;
-  box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
-}
-
-.buttons-on-note {
-  position: relative;
-  right: 2%;
-}
-
-.delete-button {
-  position: relative;
-  outline: none;
-  float: right;
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
-  padding: 10px;
-  box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgb(235, 174, 82) 0%,
-    rgb(255, 225, 55) 90%
-  );
-}
-
-.delete-button:hover {
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgb(233, 142, 5) 0%,
-    rgb(253, 215, 0) 90%
-  );
-}
-
-.delete-button:active {
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgb(179, 107, 0) 0%,
-    rgb(233, 199, 5) 90%
-  );
-}
-
-.delete-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.voice-button {
-  position: relative;
-  margin-right: 10px;
-  outline: none;
-  float: right;
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
-  padding: 10px;
-  box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgb(235, 174, 82) 0%,
-    rgb(255, 225, 55) 90%
-  );
-}
-
-.voice-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.voice-button:hover {
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgb(233, 142, 5) 0%,
-    rgb(253, 215, 0) 90%
-  );
-}
-
-.voice-button:active {
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgb(179, 107, 0) 0%,
-    rgb(233, 199, 5) 90%
-  );
-}
-
-.edit-button {
-  position: relative;
-  margin-right: 10px;
-  outline: none;
-  float: right;
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
-  padding: 6px;
-  width: 52px;
-  box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgb(235, 174, 82) 0%,
-    rgb(255, 225, 55) 90%
-  );
-}
-
-.edit-button:hover {
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgb(233, 142, 5) 0%,
-    rgb(253, 215, 0) 90%
-  );
-}
-
-.edit-button:active {
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgb(179, 107, 0) 0%,
-    rgb(233, 199, 5) 90%
-  );
-}
-
-.edit-icon {
-  margin-top: 3px;
-  width: 37px;
-  height: 37px;
-}
-
-.note-title {
-  font-family: "Indie Flower", cursive;
-  border: none;
-  background: transparent;
-  color: black;
-  padding: 10px;
-  outline: none;
-  font-weight: bold;
-  font-size: 20px;
-  width: 85%;
-}
-
-.note-title::placeholder {
-  color: black;
-  opacity: 0.5;
-}
-
-.note-textarea {
-  font-family: "Indie Flower", cursive;
-  border: none;
-  background: transparent;
-  color: black;
-  padding-left: 15px;
-  outline: none;
-  font-weight: bold;
-  font-size: 16px;
-  width: 85%;
-  margin: 0;
-  height: 120%;
-  resize: none;
-}
-
-.note-textarea::placeholder {
-  opacity: 0.5;
-  color: black;
-}
-
-.error-div {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.error-message {
-  color:red; 
-  font-weight: bold; 
-  font-size: 22px;
-  font-family: "Indie Flower", cursive;
-}
-
-.signup-inputs {
-  margin-top: 10%;
-}
-
-.show-pw {
-  width: 40px;
-  height: 30px;
-  position: absolute;
-  right: 80px;
-}
-
-.show-pw:hover {
-  cursor: pointer;
-}
-
-.new-note-div {
-  position: absolute;
-  margin-top: 4%;
-  margin-left: 3%;
-  width: 350px;
-  height: 230px;
-  background-color: #f3aa00;
-  cursor: pointer;
-  transition: 0.3s;
-  transform: rotate(-4deg);
-  -o-transform: rotate(-4deg);
-  -webkit-transform: rotate(-4deg);
-  -moz-transform: rotate(-4deg);
-  box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
-}
-
-.new-note-div:hover {
-  transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  width: 400px;
-  height: 270px;
-  box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
-}
-
-.new-note-div:active {
-  transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  width: 400px;
-  height: 270px;
-  transition: none;
-  box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
-}
-
-.new-note-title-input {
-  position: absolute;
-  margin-left: 14%;
-  width: 73%;
-  font-family: "Indie Flower", cursive;
-  border: none;
-  background: transparent;
-  color: black;
-  padding: 10px;
-  outline: none;
-  font-weight: bold;
-  font-size: 25px;
-}
-
-.new-note-title-input::placeholder {
-  color: black;
-  opacity: 0.5;
-}
-
-.new-note-textarea {
-  font-family: "Indie Flower", cursive;
-  border: none;
-  background: transparent;
-  position: absolute;
-  color: black;
-  margin-left: 16%;
-  margin-top: 15%;
-  outline: none;
-  font-weight: bold;
-  font-size: 18px;
-  resize: none;
-  width: 72%;
-}
-
-.new-note-textarea::placeholder {
-  color: black;
-  opacity: 0.5;
-}
-
-.notes-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.note-list {
-  margin-top: 23%;
-}
-
-@media only screen and (max-width: 760px) {
-  html {
-    background-image: radial-gradient(
-      circle farthest-corner at 50.4% 49.8%,
-      rgba(254, 245, 234, 1) 0%,
-      rgba(255, 231, 204, 1) 90%
-    );
-    background-size: cover;
-  }
-
-  #content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .icons {
-    position: relative;
-    bottom: 15%;
-  }
-
-  body {
-    overflow: auto;
-  }
-
-  .main-title-div {
-    margin-top: inherit;
-    position: relative;
-    left: 60%;
-  }
-
-  .main-title {
-    font-size: 50px;
-  }
-
-  .login-title {
-    font-size: 35px;
-  }
-
-  .login-div {
-    width: 63%;
-    height: 60%;
+    background-color: white;
+    width: 40%;
+    height: 600px;
+    margin: 0;
+    border-radius: 1%;
+    box-shadow: 0px 5px 13px -4px rgba(0, 0, 0, 0.59);
     top: 50%;
-    left: 20%;
     position: absolute;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-  }
+}
 
-  .facebook-login {
-    height: 20px;
-    width: 16px;
-  }
+.login-title {
+    font-family: "Indie Flower", cursive;
+    color: white;
+    font-size: 55px;
+    text-align: center;
+    bottom: 8%;
+    position: relative;
+}
 
-  .google-login {
-    height: 20px;
-    width: 16px;
-  }
-
-  .login-button {
-    padding: 23%;
-    width: 146%;
-    font-size: 8px;
-    outline: none;
-  }
-
-  .form-input {
-    border: none;
-    border-bottom: 2px solid silver;
-    padding: 2px;
-    box-shadow: 0 0 0 30px white inset !important;
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-    outline: none;
-    width: 60%;
-    font-size: 10px;
-  }
-
-
-  .form-input:-webkit-autofill {
-    border: none;
-    border-bottom: 2px solid silver;
-    padding: 2px;
-    box-shadow: 0 0 0 30px white inset !important;
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-    outline: none;
-    width: 60%;
-    font-size: 10px;
-  }
-
-  .form-input:focus {
-    border-bottom: 2px solid #ff6f00;
-    transition: 0.3s ease;
-  }
-
-  .register-question {
+.upperline {
+    background-image: radial-gradient( circle 873px at 99.5% 1.4%, rgba(255, 167, 80, 1) 0.1%, rgba(255, 106, 232, 1) 100.2%);
     position: absolute;
-    right: 8%;
+    height: 35%;
+    width: 100%;
+}
+
+.icons {
+    position: relative;
+    bottom: 15%;
+}
+
+.facebook-login {
+    height: 35px;
+    width: 33px;
+    border: 5px solid white;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.facebook-login:hover {
+    border: 5px solid #ff6f00;
+    transition: 0.3s;
+}
+
+.google-login {
+    height: 35px;
+    width: 33px;
+    border: 5px solid white;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.google-login:hover {
+    border: 5px solid #ff6f00;
+    transition: 0.3s;
+}
+
+.login-credentials {
+    text-align: center;
+    margin-top: 4%;
+}
+
+.login-inputs {
+    margin-top: 10%;
+}
+
+#main-content {
+    display: grid;
+    animation: fadein 1s;
+}
+
+.main-header {
+    font-family: "Indie Flower", cursive;
+    clear: both;
+    background-image: radial-gradient( circle farthest-corner at 3.1% 8.2%, rgba(248, 250, 107, 1) 0%, rgba(238, 148, 148, 1) 98.2%);
+    box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.59);
+}
+
+.main-hello-title {
+    float: right;
+    margin-right: 20px;
+    color: white;
+}
+
+.main-header-title {
+    float: left;
+    margin-left: 20px;
+    line-height: 4px;
+    font-size: 50px;
+    color: #ff6f00;
+}
+
+.form-input {
+    font-family: "Indie Flower", cursive;
+    font-weight: bold;
+    border: none;
+    border-bottom: 2px solid silver;
+    padding: 10px;
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    outline: none;
+    width: 70%;
+    font-size: 20px;
+    color: #282828;
+}
+
+.form-input:-webkit-autofill {
+    font-family: "Indie Flower", cursive;
+    font-weight: bold;
+    border: none;
+    border-bottom: 2px solid silver;
+    padding: 10px;
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    outline: none;
+    width: 70%;
+    font-size: 20px;
+}
+
+.form-input:focus {
+    font-family: "Indie Flower", cursive;
+    font-weight: bold;
+    border-bottom: 3px solid #ff6f00;
+    transition: 0.3s ease;
+}
+
+.button-div {
+    position: absolute;
+    bottom: 11%;
+    left: 15%;
+}
+
+.login-button {
+    border: none;
+    padding: 24%;
+    width: 200%;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0px 5px 10px -4px rgba(0, 0, 0, 0.59);
+    background-image: linear-gradient( 68.1deg, rgba(255, 200, 69, 1) -0.3%, rgba(239, 69, 115, 1) 100.2%);
+    outline: none;
+}
+
+.login-button:hover {
+    box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.59);
+    background-image: linear-gradient( 68.1deg, rgba(255, 170, 69, 1) -0.3%, rgba(255, 69, 75, 1) 100.2%);
+}
+
+.register-question {
+    position: absolute;
+    right: 15%;
     text-align: center;
     bottom: 8%;
     font-family: "Indie Flower", cursive;
     font-weight: bold;
-  }
+}
 
-  p {
-    font-size: 55%;
-  }
-
-  a {
+a {
     position: relative;
     bottom: 15px;
     text-decoration: none;
-    font-size: 10px;
+    font-size: 25px;
     font-weight: bold;
     color: #ff6f00;
     font-family: "Indie Flower", cursive;
-  }
+}
 
-  #main-content {
-    display: grid;
-    font-family: "Indie Flower", cursive;
-  }
+a:hover {
+    color: #974200;
+}
 
-  .main-header-title {
-    font-size: 35px;
-    position: relative;
-    top: 25%;
-  }
-
-  .main-header {
+.add-button {
+    display: inline-block;
+    margin-left: -4%;
+    margin-top: -4%;
+    padding: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(251, 176, 64, 1) 0%, rgba(251, 223, 64, 1) 90%);
+    font-size: 250%;
     color: white;
-    clear: both;
-  }
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    line-height: 0px;
+}
 
-  .add-button {
-    width: 45px;
-    height: 45px;
-    font-size: 190%;
-    padding: 10px;
-  }
+.add-button:hover {
+    background: #ffe259;
+    background: -webkit-linear-gradient(to right, #fc9d3f, #fcda34);
+    background: linear-gradient(to right, #fc9d3f, #fcda34);
+}
 
-  .logout-button-div {
+.add-button:active {
+    background: #ffe259;
+    background: -webkit-linear-gradient(to right, #fc8d1f, #fad51c);
+    background: linear-gradient(to right, #fc8d1f, #fad51c);
+}
+
+.logout-button-div {
     position: fixed;
-    bottom: 5%;
-    right: 10%;
-  }
+    bottom: 10%;
+    right: 8%;
+}
 
-  .logout-button {
-    padding: 15px;
-    width: 57px;
-    height: 57px;
-  }
-
-  .logout-icon {
-    transform: translate(-50%, -50%);
-    width: 27px;
-    height: 27px;
-    display: block;
-  }
-
-  .notecontainer {
-    margin-top: 55%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-  }
-
-  .note {
-    margin: 0 auto;
+.logout-button {
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 20px;
+    width: 70px;
+    height: 70px;
+    outline: none;
     position: relative;
-    transition: 0.3s;
-    width: 67%;
-    height: 190px;
-    margin-top: 15px;
-    margin-bottom: 20px;
-  }
+    float: right;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(251, 176, 64, 1) 0%, rgba(251, 223, 64, 1) 90%);
+    box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
+}
 
-  .note:hover {
-    width: 80%;
-    height: 215px;
-    transition: 0.3s;
-  }
+.logout-button:hover {
+    background: #ffe259;
+    background: -webkit-linear-gradient(to right, #fc9d3f, #fcda34);
+    background: linear-gradient(to right, #fc9d3f, #fcda34);
+}
 
-  .note:active {
+.logout-button:active {
+    background: #ffe259;
+    background: -webkit-linear-gradient(to right, #fc8d1f, #fad51c);
+    background: linear-gradient(to right, #fc8d1f, #fad51c);
+}
+
+.logout-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    display: block;
+}
+
+.notecontainer {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fit, 350px);
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-bottom: 30px;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.note {
+    width: 90%;
+    height: 200px;
+    background-color: #ffbf00;
+    cursor: pointer;
+    transition: 0.3s;
+    transform: rotate(-4deg);
+    -o-transform: rotate(-4deg);
+    -webkit-transform: rotate(-4deg);
+    -moz-transform: rotate(-4deg);
+    box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
+}
+
+.note:hover {
     transform: rotate(0deg);
     -o-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
-    width: 80%;
-    height: 215px;
-  }
+    width: 100%;
+    height: 230px;
+    box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
+}
 
-  .buttons-on-note {
+.note:active {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transition: none;
+    width: 100%;
+    height: 230px;
+    box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
+}
+
+.buttons-on-note {
     position: relative;
-    top: 12%;
     right: 2%;
-  }
+}
 
-  .delete-button {
-    padding: 8px;
-  }
-
-  .voice-button {
-    padding: 8px;
-  }
-
-  .voice-icon {
-    width: 25px;
-    height: 25px;
-  }
-
-  .delete-icon {
-    width: 25px;
-    height: 25px;
-  }
-
-  .edit-button {
+.delete-button {
     position: relative;
-    margin-left: 2%;
-    margin-top: 10%;
+    outline: none;
+    float: right;
+    left: 58px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(235, 174, 82) 0%, rgb(255, 225, 55) 90%);
+}
+
+.delete-button:hover {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(233, 142, 5) 0%, rgb(253, 215, 0) 90%);
+}
+
+.delete-button:active {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(179, 107, 0) 0%, rgb(233, 199, 5) 90%);
+}
+
+.delete-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.voice-button {
+    position: relative;
+    margin-right: 10px;
     outline: none;
     float: right;
     border: none;
     cursor: pointer;
     border-radius: 50%;
-    padding: 4px;
-    width: 45px;
+    padding: 10px;
     box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
-    background-image: radial-gradient(
-      circle farthest-corner at 10% 20%,
-      rgb(235, 174, 82) 0%,
-      rgb(255, 225, 55) 90%
-    );
-  }
-  
-  .edit-button:hover {
-    background-image: radial-gradient(
-      circle farthest-corner at 10% 20%,
-      rgb(233, 142, 5) 0%,
-      rgb(253, 215, 0) 90%
-    );
-  }
-  
-  .edit-button:active {
-    background-image: radial-gradient(
-      circle farthest-corner at 10% 20%,
-      rgb(179, 107, 0) 0%,
-      rgb(233, 199, 5) 90%
-    );
-  }
-  
-  .edit-icon {
-    margin-top: 5px;
-    width: 31px;
-    height: 29px;
-  }
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(235, 174, 82) 0%, rgb(255, 225, 55) 90%);
+}
 
-  .note-title {
+.voice-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.voice-button:hover {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(233, 142, 5) 0%, rgb(253, 215, 0) 90%);
+}
+
+.voice-button:active {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(179, 107, 0) 0%, rgb(233, 199, 5) 90%);
+}
+
+.edit-button {
+    position: relative;
+    margin-right: 10px;
+    outline: none;
+    float: right;
+    right: 58px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 6px;
+    width: 52px;
+    box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(235, 174, 82) 0%, rgb(255, 225, 55) 90%);
+}
+
+.edit-button:hover {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(233, 142, 5) 0%, rgb(253, 215, 0) 90%);
+}
+
+.edit-button:active {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(179, 107, 0) 0%, rgb(233, 199, 5) 90%);
+}
+
+.edit-icon {
+    margin-top: 3px;
+    width: 37px;
+    height: 37px;
+}
+
+.note-title {
     font-family: "Indie Flower", cursive;
     border: none;
     background: transparent;
@@ -904,40 +437,68 @@ ul {
     padding: 10px;
     outline: none;
     font-weight: bold;
-    font-size: 16px;
-  }
+    font-size: 20px;
+    width: 85%;
+}
 
-  .note-textarea {
+.note-title::placeholder {
+    color: black;
+    opacity: 0.5;
+}
+
+.note-textarea {
+    font-family: "Indie Flower", cursive;
+    border: none;
+    background: transparent;
+    color: black;
+    padding-left: 15px;
     outline: none;
     font-weight: bold;
-    font-size: 12px;
-  }
+    font-size: 16px;
+    width: 85%;
+    margin: 0;
+    height: 120%;
+    resize: none;
+}
 
-  .error-div {
-    margin-top: 10px;
-  }
+.note-textarea::placeholder {
+    opacity: 0.5;
+    color: black;
+}
 
-  .error-message {
-    color:red; 
-    font-weight: bold; 
-    font-size: 12px;
+.error-div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    font-size: 22px;
     font-family: "Indie Flower", cursive;
-  }
+}
 
-  .show-pw {
-    width: 20px;
-    height: 14px;
-    position: absolute;
-    right: 20%;
-  }
+.signup-inputs {
+    margin-top: 10%;
+}
 
-  .new-note-div {
+.show-pw {
+    width: 40px;
+    height: 30px;
     position: absolute;
-    display: inline-block;
-    margin-top: 14%;
-    margin-left: 8%;
-    width: 260px;
-    height: 160px;
+    right: 80px;
+}
+
+.show-pw:hover {
+    cursor: pointer;
+}
+
+.new-note-div {
+    position: absolute;
+    margin-top: 4%;
+    margin-left: 3%;
+    width: 350px;
+    height: 230px;
     background-color: #f3aa00;
     cursor: pointer;
     transition: 0.3s;
@@ -946,30 +507,30 @@ ul {
     -webkit-transform: rotate(-4deg);
     -moz-transform: rotate(-4deg);
     box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
-  }
-  
-  .new-note-div:hover {
+}
+
+.new-note-div:hover {
     transform: rotate(0deg);
     -o-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
-    width: 268px;
-    height: 190px;
+    width: 400px;
+    height: 270px;
     box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
-  }
-  
-  .new-note-div:active {
+}
+
+.new-note-div:active {
     transform: rotate(0deg);
     -o-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
-    width: 268px;
-    height: 190px;
-    transition: 0.3s;
+    width: 400px;
+    height: 270px;
+    transition: none;
     box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
-  }
-  
-  .new-note-title-input {
+}
+
+.new-note-title-input {
     position: absolute;
     margin-left: 14%;
     width: 73%;
@@ -980,15 +541,15 @@ ul {
     padding: 10px;
     outline: none;
     font-weight: bold;
-    font-size: 20px;
-  }
-  
-  .new-note-title-input::placeholder {
+    font-size: 25px;
+}
+
+.new-note-title-input::placeholder {
     color: black;
     opacity: 0.5;
-  }
-  
-  .new-note-textarea {
+}
+
+.new-note-textarea {
     font-family: "Indie Flower", cursive;
     border: none;
     background: transparent;
@@ -998,22 +559,393 @@ ul {
     margin-top: 15%;
     outline: none;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 18px;
     resize: none;
     width: 72%;
-  }
-  
-  .new-note-textarea::placeholder {
+}
+
+.new-note-textarea::placeholder {
     color: black;
     opacity: 0.5;
-  }
-  
-  .notes-container {
+}
+
+.notes-container {
     display: flex;
     flex-direction: column;
-  }
-  
-  .note-list {
+}
+
+.note-list {
     margin-top: 23%;
-  }
+}
+
+.swal2-html-container,
+.swal2-title,
+.swal2-confirm,
+.swal2-cancel {
+    font-family: "Indie Flower", cursive;
+    font-weight: bold;
+}
+
+.delete-user-button {
+    position: absolute;
+    right: 10%;
+    outline: none;
+    top: 5%;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 15px;
+    width: 62px;
+    box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
+    background-image: radial-gradient( circle 369px at 10% 20%, rgba(245, 76, 76, 0.80) 0.7%, rgba(243, 203, 129, 0.9) 86.1%);
+}
+
+.delete-user-button:hover {
+    background-image: radial-gradient( circle 369px at 10% 20%, rgba(255, 76, 76, 0.80) 0.7%, rgba(243, 203, 129, 0.9) 86.1%);
+}
+
+.delete-user-button:active {
+    background-image: radial-gradient( circle 369px at 10% 20%, rgba(220, 76, 76, 0.80) 0.7%, rgba(243, 203, 129, 0.9) 86.1%);
+}
+
+.delete-user-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.delete-account-div {
+    position: absolute;
+    right: 8%;
+    top: 8%;
+}
+
+@media only screen and (max-width: 760px) {
+    html {
+        background-image: radial-gradient( circle farthest-corner at 50.4% 49.8%, rgba(254, 245, 234, 1) 0%, rgba(255, 231, 204, 1) 90%);
+        background-size: cover;
+    }
+    #content {
+        display: flex;
+        flex-direction: column;
+    }
+    .icons {
+        position: relative;
+        bottom: 15%;
+    }
+    body {
+        overflow: auto;
+    }
+    .main-title-div {
+        margin-top: inherit;
+        position: relative;
+        left: 60%;
+    }
+    .main-title {
+        font-size: 50px;
+    }
+    .login-title {
+        font-size: 35px;
+    }
+    .login-div {
+        width: 63%;
+        height: 60%;
+        top: 50%;
+        left: 20%;
+        position: absolute;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    .facebook-login {
+        height: 20px;
+        width: 16px;
+    }
+    .google-login {
+        height: 20px;
+        width: 16px;
+    }
+    .login-button {
+        padding: 23%;
+        width: 146%;
+        font-size: 8px;
+        outline: none;
+    }
+    .form-input {
+        border: none;
+        border-bottom: 2px solid silver;
+        padding: 2px;
+        box-shadow: 0 0 0 30px white inset !important;
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+        outline: none;
+        width: 60%;
+        font-size: 10px;
+    }
+    .form-input:-webkit-autofill {
+        border: none;
+        border-bottom: 2px solid silver;
+        padding: 2px;
+        box-shadow: 0 0 0 30px white inset !important;
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+        outline: none;
+        width: 60%;
+        font-size: 10px;
+    }
+    .form-input:focus {
+        border-bottom: 2px solid #ff6f00;
+        transition: 0.3s ease;
+    }
+    .register-question {
+        position: absolute;
+        right: 8%;
+        text-align: center;
+        bottom: 8%;
+        font-family: "Indie Flower", cursive;
+        font-weight: bold;
+    }
+    p {
+        font-size: 55%;
+    }
+    a {
+        position: relative;
+        bottom: 15px;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: bold;
+        color: #ff6f00;
+        font-family: "Indie Flower", cursive;
+    }
+    #main-content {
+        display: grid;
+        font-family: "Indie Flower", cursive;
+    }
+    .main-header-title {
+        font-size: 35px;
+        position: relative;
+        top: 25%;
+    }
+    .main-header {
+        color: white;
+        clear: both;
+    }
+    .add-button {
+        width: 45px;
+        height: 45px;
+        font-size: 190%;
+        padding: 10px;
+    }
+    .logout-button-div {
+        position: fixed;
+        bottom: 5%;
+        right: 10%;
+    }
+    .logout-button {
+        padding: 15px;
+        width: 57px;
+        height: 57px;
+    }
+    .logout-icon {
+        transform: translate(-50%, -50%);
+        width: 27px;
+        height: 27px;
+        display: block;
+    }
+    .notecontainer {
+        margin-top: 55%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+    .note {
+        margin: 0 auto;
+        position: relative;
+        transition: 0.3s;
+        width: 67%;
+        height: 190px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+    .note:hover {
+        width: 80%;
+        height: 215px;
+        transition: 0.3s;
+    }
+    .note:active {
+        transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        width: 80%;
+        height: 215px;
+    }
+    .buttons-on-note {
+        position: relative;
+        top: 12%;
+        right: 2%;
+    }
+    .delete-button {
+        padding: 8px;
+    }
+    .voice-button {
+        padding: 8px;
+    }
+    .voice-icon {
+        width: 25px;
+        height: 25px;
+    }
+    .delete-icon {
+        width: 25px;
+        height: 25px;
+    }
+    .edit-button {
+        position: relative;
+        margin-left: 6%;
+        margin-top: 9%;
+        outline: none;
+        float: right;
+        border: none;
+        cursor: pointer;
+        border-radius: 50%;
+        padding: 4px;
+        width: 45px;
+        box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
+        background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(235, 174, 82) 0%, rgb(255, 225, 55) 90%);
+    }
+    .edit-button:hover {
+        background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(233, 142, 5) 0%, rgb(253, 215, 0) 90%);
+    }
+    .edit-button:active {
+        background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(179, 107, 0) 0%, rgb(233, 199, 5) 90%);
+    }
+    .edit-icon {
+        margin-top: 5px;
+        width: 31px;
+        height: 29px;
+    }
+    .note-title {
+        font-family: "Indie Flower", cursive;
+        border: none;
+        background: transparent;
+        color: black;
+        padding: 10px;
+        outline: none;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .note-textarea {
+        outline: none;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    .error-div {
+        margin-top: 10px;
+    }
+    .error-message {
+        color: red;
+        font-weight: bold;
+        font-size: 12px;
+        font-family: "Indie Flower", cursive;
+    }
+    .show-pw {
+        width: 20px;
+        height: 14px;
+        position: absolute;
+        right: 20%;
+    }
+    .new-note-div {
+        position: absolute;
+        display: inline-block;
+        margin-top: 14%;
+        margin-left: 8%;
+        width: 260px;
+        height: 160px;
+        background-color: #f3aa00;
+        cursor: pointer;
+        transition: 0.3s;
+        transform: rotate(-4deg);
+        -o-transform: rotate(-4deg);
+        -webkit-transform: rotate(-4deg);
+        -moz-transform: rotate(-4deg);
+        box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
+    }
+    .new-note-div:hover {
+        transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        width: 268px;
+        height: 190px;
+        box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
+    }
+    .new-note-div:active {
+        transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        width: 268px;
+        height: 190px;
+        transition: 0.3s;
+        box-shadow: -3px 5px 10px -1px rgba(0, 0, 0, 0.59);
+    }
+    .new-note-title-input {
+        position: absolute;
+        margin-left: 14%;
+        width: 73%;
+        font-family: "Indie Flower", cursive;
+        border: none;
+        background: transparent;
+        color: black;
+        padding: 10px;
+        outline: none;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .new-note-title-input::placeholder {
+        color: black;
+        opacity: 0.5;
+    }
+    .new-note-textarea {
+        font-family: "Indie Flower", cursive;
+        border: none;
+        background: transparent;
+        position: absolute;
+        color: black;
+        margin-left: 16%;
+        margin-top: 15%;
+        outline: none;
+        font-weight: bold;
+        font-size: 12px;
+        resize: none;
+        width: 72%;
+    }
+    .new-note-textarea::placeholder {
+        color: black;
+        opacity: 0.5;
+    }
+    .notes-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .note-list {
+        margin-top: 23%;
+    }
+    .delete-user-button {
+        position: absolute;
+        right: 10%;
+        top: 7%;
+        border: none;
+        cursor: pointer;
+        border-radius: 50%;
+        padding: 8px;
+        width: 45px;
+        box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
+        background-image: radial-gradient( circle 369px at 10% 20%, rgba(245, 76, 76, 0.80) 0.7%, rgba(243, 203, 129, 0.9) 86.1%);
+    }
+    .delete-account-div {
+        position: absolute;
+        right: 3%;
+        top: 10%;
+    }
+    .delete-user-icon {
+        width: 25px;
+        height: 25px;
+    }
 }

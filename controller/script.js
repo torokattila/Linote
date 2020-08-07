@@ -8,18 +8,25 @@ window.onscroll = () => {
     }
 }
 
-$('.show-pw').on('touchstart mousedown', function () {
+$(document).ready(function() {
+    const colors = ['#fff740', '#ef820d', '#fda50f', '#f9812a'];
+    const newColor = colors[Math.floor(Math.random() * colors.length)];
+
+    $('.new-note-div').css('background-color', newColor);
+})
+
+$('.show-pw').on('touchstart mousedown', function() {
     $(this).prev().attr('type', 'text');
-}).mouseup(function () {
+}).mouseup(function() {
     $(this).prev().attr('type', 'password');
-}).mouseout(function () {
+}).mouseout(function() {
     $(this).prev().attr('type', 'password');
 })
 
 const colors = ['#fff740', '#ef820d', '#fda50f', '#cf9812a'];
 const newColor = colors[Math.floor(Math.random() * colors.length)];
 
-$('.deleteForm').on('submit', function (event) {
+$('.deleteForm').on('submit', function(event) {
     event.preventDefault(),
         Swal.fire({
             title: 'Are you sure?',
@@ -36,7 +43,7 @@ $('.deleteForm').on('submit', function (event) {
         });
 });
 
-$('.logoutForm').on('click', function (event) {
+$('.logoutForm').on('click', function(event) {
     Swal.fire({
         title: 'Are you sure?',
         text: "Do you want to log out?",
@@ -52,7 +59,7 @@ $('.logoutForm').on('click', function (event) {
     });
 })
 
-$('.editForm').on('submit', function (event) {
+$('.editForm').on('submit', function(event) {
     event.preventDefault();
     Swal.fire({
         title: 'Are you sure?',
@@ -62,6 +69,23 @@ $('.editForm').on('submit', function (event) {
         confirmButtonColor: 'orange',
         cancelButtonColor: '#f0928c',
         confirmButtonText: 'Yes, edit!'
+    }).then((result) => {
+        if (result.value) {
+            $(this).unbind('submit').submit();
+        }
+    });
+})
+
+$('.deleteUserForm').on('submit', function(event) {
+    event.preventDefault();
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "Do you want to delete your account?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: 'orange',
+        cancelButtonColor: '#f0928c',
+        confirmButtonText: 'Yes, delete!'
     }).then((result) => {
         if (result.value) {
             $(this).unbind('submit').submit();
