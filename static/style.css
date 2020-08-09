@@ -495,7 +495,7 @@ ul {
 
 .new-note-div {
     position: absolute;
-    margin-top: 4%;
+    margin-top: 6%;
     margin-left: 3%;
     width: 350px;
     height: 230px;
@@ -616,7 +616,58 @@ ul {
 .delete-account-div {
     position: absolute;
     right: 8%;
-    top: 8%;
+    top: 9%;
+}
+
+.info-div {
+    position: absolute;
+    top: 12%;
+    left: 2%;
+}
+
+.info-button {
+    position: relative;
+    margin-right: 10px;
+    outline: none;
+    float: left;
+    border: none;
+    cursor: pointer;
+    width: 35px;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: -3px 5px 10px -4px rgba(0, 0, 0, 0.59);
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(235, 174, 82) 0%, rgb(255, 225, 55) 90%);
+}
+
+.info-icon {
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+.info-button:hover {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(233, 142, 5) 0%, rgb(253, 215, 0) 90%);
+}
+
+.info-button:active {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgb(179, 107, 0) 0%, rgb(233, 199, 5) 90%);
+}
+
+.informationtext {
+    background-color: #f09537;
+    border-top-right-radius: 30px;
+    display: none;
+    height: 25px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    text-align: center;
+    width: 110%;
+    padding: 5px;
+    color: white;
+    font-family: "Indie Flower", cursive;
+    box-shadow: 0px 5px 13px -4px rgba(0, 0, 0, 0.59);
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 760px) {
@@ -797,8 +848,8 @@ ul {
     }
     .edit-button {
         position: relative;
-        margin-left: 6%;
-        margin-top: 9%;
+        margin-left: 4%;
+        margin-top: 8%;
         outline: none;
         float: right;
         border: none;
@@ -853,7 +904,7 @@ ul {
     .new-note-div {
         position: absolute;
         display: inline-block;
-        margin-top: 14%;
+        margin-top: 20%;
         margin-left: 8%;
         width: 260px;
         height: 160px;
@@ -947,5 +998,30 @@ ul {
     .delete-user-icon {
         width: 25px;
         height: 25px;
+    }
+    .info-div {
+        position: absolute;
+        top: 13%;
+        left: 2%;
+    }
+    .info-button {
+        padding: 3px;
+        width: 32px;
+    }
+    .info-icon {
+        width: 19px;
+        height: 19px;
+        margin-right: 1px;
+        margin-top: 3px;
+    }
+    .informationtext {
+        border-top-right-radius: 30px;
+        height: 20px;
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        width: 85%;
+        padding: 4px;
+        font-size: 8px;
     }
 }

@@ -93,6 +93,15 @@ $('.deleteUserForm').on('submit', function(event) {
     });
 })
 
+$(document).ready(function() {
+    $('.info-button').click(function() {
+        $('.informationtext').animate({
+            width: 'toggle',
+            opacity: 'toggle'
+        })
+    })
+})
+
 var noteContainer = document.querySelector(".notecontainer");
 
 Sortable.create(noteContainer, {

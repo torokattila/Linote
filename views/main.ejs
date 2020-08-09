@@ -5,9 +5,14 @@
             <header class="main-header">
                 <h1 class="main-hello-title">Hello
                     <%= user.username %>!</h1>
-
                 <h1 class="main-header-title">Linote</h1>
             </header>
+            <div class="info-div">
+                <button title="Information" class="info-button" type="button"><img class="info-icon" src="info.png"></button>
+                <div class="informationtext">
+                    <span>To edit a note just modify the title and/or the content in an existing note, and click the edit button</span>
+                </div>
+            </div>
             <div class="delete-account-div">
                 <form class="deleteUserForm" action="/deleteAccount" method="POST">
                     <button title="Delete Account" class="delete-user-button" type="submit"><img class="delete-user-icon" src="delete-user.png" alt="removeuser"></button>
