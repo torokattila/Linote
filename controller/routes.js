@@ -62,7 +62,6 @@ module.exports = function (app, passport) {
     app.get('/main', isLoggedIn, function (req, res) {
         let noteArray = [];
         const user = req.user;
-        console.log(user);
 
         conn.query("SELECT note_id, title, content FROM note JOIN user ON (note.user_id = user.id OR note.user_facebook_id = user.facebook_id OR note.user_google_id = user.google_id) WHERE user_id = ? OR facebook_id = ? OR google_id = ?", [user.id, user.facebook_id, user.google_id], function (err, rows) {
             if (err) {
