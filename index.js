@@ -35,15 +35,3 @@ require('./controller/routes')(app, passport);
 app.listen(PORT, () => {
     console.log(`App is listening on PORT ${PORT}`);
 })
-
-/* app.get('/', (req, res) => {
-    res.render('login');
-}); */
-
-/* app.get('/signup', (req, res) => {
-    res.render('signup');
-});
-
-app.post('/main', (req, res) => {
-    res.render('main');
-}); */

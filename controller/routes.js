@@ -6,25 +6,26 @@ const conn = mysql.createConnection(dbconfig.connection);
 
 conn.query('USE ' + dbconfig.database);
 
-module.exports = function(app, passport) {
+module.exports = function (app, passport) {
+
     app.use(bodyParser.urlencoded({
         extended: true
     }));
 
-    app.get('/', function(req, res) {
+    app.get('/', function (req, res) {
         res.render('login.ejs', { message: req.flash('loginMessage') });
     });
 
-    app.get('/login', function(req, res) {
+    app.get('/login', function (req, res) {
         res.render('login.ejs', { message: req.flash('loginMessage') });
     });
 
     app.post('/login', passport.authenticate('local-login', {
-            successRedirect: '/main',
-            failureRedirect: '/',
-            failureFlash: true
-        }),
-        function(req, res) {
+        successRedirect: '/main',
+        failureRedirect: '/',
+        failureFlash: true
+    }),
+        function (req, res) {
             if (req.body.remember) {
                 req.session.cookie.maxAge = 1000 * 60 * 3;
             } else {
@@ -34,11 +35,11 @@ module.exports = function(app, passport) {
         });
 
     app.post('/', passport.authenticate('local-login', {
-            successRedirect: '/main',
-            failureRedirect: '/login',
-            failureFlash: true
-        }),
-        function(req, res) {
+        successRedirect: '/main',
+        failureRedirect: '/login',
+        failureFlash: true
+    }),
+        function (req, res) {
             if (req.body.remember) {
                 req.session.cookie.maxAge = 1000 * 60 * 3;
             } else {
@@ -47,7 +48,7 @@ module.exports = function(app, passport) {
             res.redirect('/');
         });
 
-    app.get('/signup', function(req, res) {
+    app.get('/signup', function (req, res) {
         res.render('signup.ejs', { message: req.flash('signupMessage') });
     });
 
@@ -58,11 +59,12 @@ module.exports = function(app, passport) {
     }));
 
 
-    app.get('/main', isLoggedIn, function(req, res) {
+    app.get('/main', isLoggedIn, function (req, res) {
         let noteArray = [];
         const user = req.user;
+        console.log(user);
 
-        conn.query("SELECT note_id, title, content FROM note WHERE user_id = ?", [user.id], function(err, rows) {
+        conn.query("SELECT note_id, title, content FROM note JOIN user ON (note.user_id = user.id OR note.user_facebook_id = user.facebook_id OR note.user_google_id = user.google_id) WHERE user_id = ? OR facebook_id = ? OR google_id = ?", [user.id, user.facebook_id, user.google_id], function (err, rows) {
             if (err) {
                 console.log(err);
             }
@@ -84,12 +86,12 @@ module.exports = function(app, passport) {
 
     });
 
-    app.post('/add', function(req, res) {
+    app.post('/add', function (req, res) {
         let user = req.user;
         let title = req.body.newNoteTitleInput;
         let content = req.body.newNoteTextarea;
 
-        conn.query("INSERT INTO note (user_id, title, content) VALUES (?, ?, ?)", [user.id, title, content], (err, rows) => {
+        conn.query("INSERT INTO note (user_id, user_facebook_id, user_google_id, title, content) VALUES (?, ?, ?, ?, ?)", [user.id, user.facebook_id, user.google_id, title, content], (err, rows) => {
             if (err) {
                 console.log(err);
             } else {
@@ -100,11 +102,11 @@ module.exports = function(app, passport) {
         res.redirect('/main');
     });
 
-    app.post('/delete/:noteId', isLoggedIn, function(req, res) {
+    app.post('/delete/:noteId', isLoggedIn, function (req, res) {
         let user = req.user;
         let noteId = req.body.noteId;
 
-        conn.query("SELECT user_id, note_id FROM note JOIN user ON note.user_id = user.id WHERE user_id = ?", [user.id], function(err, rows) {
+        conn.query("SELECT user_id, user_facebook_id, user_google_id, note_id FROM note JOIN user ON note.user_id = user.id WHERE user_id = ? OR user_facebook_id = ? OR user_google_id = ?", [user.id, user.facebook_id, user.google_id], function (err, rows) {
             if (err) {
                 console.log(err);
             }
@@ -120,13 +122,13 @@ module.exports = function(app, passport) {
         res.redirect('/main');
     });
 
-    app.post('/edit/:noteId', isLoggedIn, function(req, res) {
+    app.post('/edit/:noteId', isLoggedIn, function (req, res) {
         let user = req.user;
         let noteId = req.body.noteId;
         let noteTitle = req.body.noteTitle;
         let noteContent = req.body.noteContent;
 
-        conn.query("SELECT user_id, note_id FROM note JOIN user ON note.user_id = user.id WHERE user_id = ?", [user.id], function(err, rows) {
+        conn.query("SELECT user_id, user_facebook_id, user_google_id, note_id FROM note JOIN user ON note.user_id = user.id WHERE user_id = ? OR user_facebook_id = ? OR user_google_id = ?", [user.id, user.facebook_id, user.google_id], function (err, rows) {
             if (err) {
                 console.log(err);
             }
@@ -148,7 +150,7 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
 
-        conn.query("DELETE FROM user WHERE id = ?", [user.id], (err, rows) => {
+        conn.query("DELETE FROM user WHERE id = ? OR facebook_id = ? OR google_id = ?", [user.id, user.facebook_id, user.google_id], (err, rows) => {
             if (err) {
                 console.log(err);
             } else {
@@ -156,7 +158,7 @@ module.exports = function(app, passport) {
             }
         });
 
-        conn.query("DELETE FROM note WHERE user_id = ?", [user.id], (err, rows) => {
+        conn.query("DELETE FROM note WHERE user_id = ? OR user_facebook_id = ? OR user_google_id = ?", [user.id, user.facebook_id, user.google_id], (err, rows) => {
             if (err) {
                 console.log(err);
             } else {
@@ -165,7 +167,21 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/logout', function(req, res) {
+    app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
+
+    app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+        successRedirect: '/main',
+        failureRedirect: '/'
+    }));
+
+    app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+    app.get('/auth/google/callback', passport.authenticate('google', {
+        successRedirect: '/main',
+        failureRedirect: '/'
+    }));
+
+    app.get('/logout', function (req, res) {
         req.logout();
         res.redirect('/');
     })
