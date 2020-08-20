@@ -135,6 +135,36 @@ body {
   box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.59);
 }
 
+.voice-main-header {
+  font-family: "Indie Flower", cursive;
+  position: relative;
+  margin-top: -2.5%;
+  height: 92px;
+  clear: both;
+  background-image: radial-gradient(
+    circle farthest-corner at 3.1% 8.2%,
+    rgba(248, 250, 107, 1) 0%,
+    rgba(238, 148, 148, 1) 98.2%
+  );
+  box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.59);
+}
+
+.voice-main-header-title {
+  margin-left: 20px;
+  font-size: 50px;
+  color: #ff6f00;
+}
+
+.voice-main-content {
+  animation: fadein 1s;
+}
+
+.voice-main-hello-title {
+  float: right;
+  margin-right: 20px;
+  color: white;
+}
+
 .main-hello-title {
   float: right;
   margin-right: 20px;
@@ -1132,7 +1162,37 @@ ul {
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     width: 85%;
-    padding: 4px;
+    padding: 6px;
     font-size: 8px;
+  }
+  
+  .voice-main-header {
+    position: relative;
+    margin-top: -7%;
+    height: 93px;
+    font-family: "Indie Flower", cursive;
+    clear: both;
+    background-image: radial-gradient(
+      circle farthest-corner at 3.1% 8.2%,
+      rgba(248, 250, 107, 1) 0%,
+      rgba(238, 148, 148, 1) 98.2%
+    );
+    box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.59);
+  }
+  
+  .voice-main-header-title {
+    margin-left: 20px;
+    font-size: 40px;
+    color: #ff6f00;
+  }
+  
+  .voice-main-content {
+    animation: fadein 1s;
+  }
+  
+  .voice-main-hello-title {
+    float: right;
+    margin-right: 20px;
+    color: white;
   }
 }

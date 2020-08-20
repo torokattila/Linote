@@ -1,82 +1,93 @@
 <%- include('header.ejs'); %>
 
-    <body>
-        <div id="main-content">
-            <header class="main-header">
-                <h1 class="main-hello-title">Hello
-                    <% if (user.username) { %>
-                        <%= user.username; %>
-                    <% } else if (user.facebook_name) { %>
-                        <%= user.facebook_name.split(' ')[0]; %>
-                    <% } else if (user.google_name) { %>
-                        <%= user.google_name.split(' ')[0]; %>
-                    <% }%>!</h1>
-                <h1 class="main-header-title">Linote</h1>
-            </header>
-            <div class="info-div">
-                <button title="Information" class="info-button" type="button"><img class="info-icon" src="info.png"></button>
-                <div class="informationtext">
-                    <span>To edit a note just modify the title and/or the content in an existing note, and click the edit button</span>
-                </div>
+<body>
+    <div id="main-content">
+        <header class="main-header">
+            <h1 class="main-hello-title">Hello
+                <% if (user.username) { %>
+                <%= user.username; %>
+                <% } else if (user.facebook_name) { %>
+                <%= user.facebook_name.split(' ')[0]; %>
+                <% } else if (user.google_name) { %>
+                <%= user.google_name.split(' ')[0]; %>
+                <% }%>!</h1>
+            <h1 class="main-header-title">Linote</h1>
+        </header>
+        <div class="info-div">
+            <button title="Information" class="info-button" type="button"><img class="info-icon"
+                    src="info.png"></button>
+            <div class="informationtext">
+                <span>To edit a note just modify the title and/or the content in an existing note, and click the edit
+                    button</span>
             </div>
-            <div class="delete-account-div">
-                <form class="deleteUserForm" action="/deleteAccount" method="POST">
-                    <button title="Delete Account" class="delete-user-button" type="submit"><img class="delete-user-icon" src="delete-user.png" alt="removeuser"></button>
-                </form>
-            </div>
-
-            <div class="notes-container">
-                <form action="/add" id="addNote" method="post">
-                    <div class="new-note-div">
-                        <div class="new-note-title-div">
-                            <input type="hidden" name="newNoteId">
-                            <input type="text" class="new-note-title-input" name="newNoteTitleInput" placeholder="Title:">
-                            <textarea name="newNoteTextarea" class="new-note-textarea" cols="15" rows="7" placeholder="Content:"></textarea>
-                        </div>
-                        <div>
-                            <button title="Create a new note" type="submit" class="add-button">+</button>
-                        </div>
-                    </div>
-                </form>
-
-                <div class="note-list">
-                    <ul class="notecontainer">
-                        <% for (var key in notesArray) { %>
-                            <li class="note">
-                                <div class="note-title-div">
-                                    <form class="editForm" action="/edit/:noteId" method="post">
-                                        <input type="hidden" name="noteId" value="<%=notesArray[key].note_id%>">
-                                        <input type="text" class="note-title" name="noteTitle" placeholder="Title" value="<%=notesArray[key].title%>">
-                                        <textarea class="note-textarea" name="noteContent" cols="15" rows="5" class="note-textarea" placeholder="Content:"><%=notesArray[key].content%></textarea>
-                                        <button type="submit" class="edit-button" title="Edit note"><img class="edit-icon" src="edit-icon.png"></button>
-                                    </form>
-                                </div>
-                                <div class="buttons-on-note">
-                                    <form class="deleteForm" action="/delete/:noteId" method="post">
-                                        <input type="hidden" name="noteId" value="<%=notesArray[key].note_id%>">
-                                        <button type="submit" title="Delete Note" class="delete-button"><img class="delete-icon"
-                                        src="delete.png"></button>
-                                    </form>
-                                    <button type="submit" title="Voice Recognition" class="voice-button"><img src="voice.png"
-                                    class="voice-icon"></button>
-                                </div>
-                            </li>
-                            <% } %>
-                    </ul>
-
-                </div>
-
-                <form action="/logout" method="get" class="logoutForm">
-                    <div class="logout-button-div">
-                        <button title="Log out" type="button" class="logout-button"><img
-                            class="logout-icon" src="logout.png"></button>
-                    </div>
-                </form>
-            </div>
-
         </div>
-        <script src="script.js"></script>
+        <div class="delete-account-div">
+            <form class="deleteUserForm" action="/deleteAccount" method="POST">
+                <button title="Delete Account" class="delete-user-button" type="submit"><img class="delete-user-icon"
+                        src="delete-user.png" alt="removeuser"></button>
+            </form>
+        </div>
 
-    </body>
+        <div class="notes-container">
+            <form action="/add" id="addNote" method="post">
+                <div class="new-note-div">
+                    <div class="new-note-title-div">
+                        <input type="hidden" name="newNoteId">
+                        <input type="text" class="new-note-title-input" name="newNoteTitleInput" placeholder="Title:">
+                        <textarea name="newNoteTextarea" class="new-note-textarea" cols="15" rows="7"
+                            placeholder="Content:"></textarea>
+                    </div>
+                    <div>
+                        <button title="Create a new note" type="submit" class="add-button">+</button>
+                    </div>
+                </div>
+            </form>
 
-    </html>
+            <div class="note-list">
+                <ul class="notecontainer">
+                    <% for (var key in notesArray) { %>
+                    <li class="note">
+                        <div class="note-title-div">
+                            <form class="editForm" action="/edit/:noteId" method="post">
+                                <input type="hidden" name="noteId" value="<%=notesArray[key].note_id%>">
+                                <input type="text" class="note-title" name="noteTitle" placeholder="Title"
+                                    value="<%=notesArray[key].title%>">
+                                <textarea class="note-textarea" name="noteContent" cols="15" rows="5"
+                                    class="note-textarea" placeholder="Content:"><%=notesArray[key].content%></textarea>
+                                <button type="submit" class="edit-button" title="Edit note"><img class="edit-icon"
+                                        src="edit-icon.png"></button>
+                            </form>
+                        </div>
+                        <div class="buttons-on-note">
+                            <form class="deleteForm" action="/delete/:noteId" method="post">
+                                <input type="hidden" name="noteId" value="<%=notesArray[key].note_id%>">
+                                <button type="submit" title="Delete Note" class="delete-button"><img class="delete-icon"
+                                        src="delete.png"></button>
+                            </form>
+                            <form action="/voice/:noteId" method="get">
+                                <input type="hidden" name="noteId" value="<%=notesArray[key].note_id%>">
+                                <button type="submit" title="Voice Recognition" class="voice-button"><img
+                                        src="voice.png" class="voice-icon"></button>
+                            </form>
+
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+
+            </div>
+
+            <form action="/logout" method="get" class="logoutForm">
+                <div class="logout-button-div">
+                    <button title="Log out" type="button" class="logout-button"><img class="logout-icon"
+                            src="logout.png"></button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

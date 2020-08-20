@@ -1,0 +1,43 @@
+<%- include('header.ejs'); %>
+
+<body>
+    <div class="voice-main-content">
+        <header class="voice-main-header">
+            <h1 class="voice-main-hello-title">Hello
+                <% if (user.username) { %>
+                <%= user.username; %>
+                <% } else if (user.facebook_name) { %>
+                <%= user.facebook_name.split(' ')[0]; %>
+                <% } else if (user.google_name) { %>
+                <%= user.google_name.split(' ')[0]; %>
+                <% }%>!</h1>
+            <h1 class="voice-main-header-title">Linote</h1>
+        </header>
+
+        <div class="info-div">
+            <button title="Information" class="info-button" type="button"><img class="info-icon"
+                    src="/info.png"></button>
+            <div class="informationtext">
+                <span>Just start reading the text in the note and watch the change</span>
+            </div>
+        </div>
+        <div class="delete-account-div">
+            <form class="deleteUserForm" action="/deleteAccount" method="POST">
+                <button title="Delete Account" class="delete-user-button" type="submit"><img class="delete-user-icon"
+                        src="/delete-user.png" alt="removeuser"></button>
+            </form>
+        </div>
+
+        <form action="/main" method="get" class="backForm">
+            <div class="logout-button-div">
+                <button title="Back to main page" type="submit" class="logout-button"><img style="filter: invert(100%);" class="logout-icon"
+                        src="/back.png"></button>
+            </div>
+        </form>
+
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

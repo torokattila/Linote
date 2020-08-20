@@ -13,7 +13,7 @@ const flash = require('connect-flash');
 
 require('./controller/passport')(passport);
 
-app.use(express.static('static'));
+app.use(express.static(__dirname + '/static'));
 app.use(express.static('controller'));
 app.use(morgan('dev'));
 app.use(cookieParser());

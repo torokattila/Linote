@@ -143,6 +143,18 @@ module.exports = function (app, passport) {
         res.redirect('/main');
     });
 
+    app.get('/voice/:noteId', isLoggedIn, function (req, res) {
+        const user = req.user;
+        let noteId = req.body.noteId;
+        let noteTitle = req.body.noteTitle;
+        let noteContent = req.body.noteContent;
+
+        res.render('voice', {
+            user: req.user,
+            note: req.note,
+        });
+    })
+
     app.post('/deleteAccount', (req, res) => {
         let user = req.user;
 
