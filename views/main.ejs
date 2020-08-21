@@ -64,7 +64,7 @@
                                 <button type="submit" title="Delete Note" class="delete-button"><img class="delete-icon"
                                         src="delete.png"></button>
                             </form>
-                            <form action="/voice/:noteId" method="get">
+                            <form action="/voice/:noteId" method="post">
                                 <input type="hidden" name="noteId" value="<%=notesArray[key].note_id%>">
                                 <button type="submit" title="Voice Recognition" class="voice-button"><img
                                         src="voice.png" class="voice-icon"></button>

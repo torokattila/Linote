@@ -143,16 +143,24 @@ module.exports = function (app, passport) {
         res.redirect('/main');
     });
 
-    app.get('/voice/:noteId', isLoggedIn, function (req, res) {
+    app.post('/voice/:noteId', isLoggedIn, function (req, res) {
         const user = req.user;
         let noteId = req.body.noteId;
-        let noteTitle = req.body.noteTitle;
-        let noteContent = req.body.noteContent;
+        let noteArray = [];
 
-        res.render('voice', {
-            user: req.user,
-            note: req.note,
-        });
+        conn.query("SELECT note_id, title, content FROM note WHERE note_id = ?", [noteId], (err, rows) => {
+            let queryRows = JSON.parse(JSON.stringify(rows));
+
+            queryRows.forEach((row) => {
+                noteArray.push(row);
+            })
+            
+            res.render('voice', {
+                user: req.user,
+                note: req.note,
+                noteArray: noteArray
+            });
+        })
     })
 
     app.post('/deleteAccount', (req, res) => {

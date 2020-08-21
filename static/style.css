@@ -10,6 +10,20 @@ html {
   width: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background-color: #f08431;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: transparent;
+}
+
 body {
   margin: 0;
 }
@@ -788,6 +802,42 @@ ul {
   font-weight: bold;
 }
 
+.recognition-note {
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 4%;
+  width: 65%;
+  height: 470px;
+  background-color: #f3aa00;
+  box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
+  font-family: "Indie Flower", cursive;
+}
+
+.voice-note-title-div {
+  position: relative;
+  top: 20px;
+  font-weight: bold;
+  font-size: 30px;
+  left: 38%;
+}
+
+.voice-note-textarea {
+  clear: left;
+  text-align-last: left;
+  border: none;
+  background: transparent;
+  position: absolute;
+  color: black;
+  font-weight: bold;
+  resize: none;
+  font-size: 25px;
+  margin-top: 30px;
+  margin-left: 2%;
+  width: 33em;
+  height: 14em;
+  outline: none;
+  font-family: "Indie Flower", cursive;
+}
 @media only screen and (max-width: 760px) {
   html {
     background-image: radial-gradient(
@@ -1165,7 +1215,7 @@ ul {
     padding: 6px;
     font-size: 8px;
   }
-  
+
   .voice-main-header {
     position: relative;
     margin-top: -7%;
@@ -1179,20 +1229,58 @@ ul {
     );
     box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.59);
   }
-  
+
   .voice-main-header-title {
+    position: relative;
+    top: 17%;
     margin-left: 20px;
     font-size: 40px;
     color: #ff6f00;
   }
-  
+
   .voice-main-content {
     animation: fadein 1s;
   }
-  
+
   .voice-main-hello-title {
     float: right;
     margin-right: 20px;
     color: white;
+  }
+
+  .recognition-note {
+    padding: 0;
+    margin-top: 14%;
+    width: 80%;
+    height: 450px;
+    background-color: #f3aa00;
+    box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
+    font-family: "Indie Flower", cursive;
+  }
+  
+  .voice-note-title-div {
+    position: relative;
+    top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    left: 38%;
+  }
+  
+  .voice-note-textarea {
+    clear: left;
+    text-align-last: left;
+    border: none;
+    background: transparent;
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    resize: none;
+    font-size: 20px;
+    width: 13em;
+    height: 17em;
+    margin-top: 30px;
+    margin-left: 5%;
+    outline: none;
+    font-family: "Indie Flower", cursive;
   }
 }
