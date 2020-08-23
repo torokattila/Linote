@@ -8,25 +8,25 @@ window.onscroll = () => {
     }
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     const colors = ['#fff740', '#ef820d', '#fda50f', '#f9812a'];
     const newColor = colors[Math.floor(Math.random() * colors.length)];
 
     $('.new-note-div').css('background-color', newColor);
 })
 
-$('.show-pw').on('touchstart mousedown', function() {
+$('.show-pw').on('touchstart mousedown', function () {
     $(this).prev().attr('type', 'text');
-}).mouseup(function() {
+}).mouseup(function () {
     $(this).prev().attr('type', 'password');
-}).mouseout(function() {
+}).mouseout(function () {
     $(this).prev().attr('type', 'password');
 })
 
 const colors = ['#fff740', '#ef820d', '#fda50f', '#cf9812a'];
 const newColor = colors[Math.floor(Math.random() * colors.length)];
 
-$('.deleteForm').on('submit', function(event) {
+$('.deleteForm').on('submit', function (event) {
     event.preventDefault(),
         Swal.fire({
             title: 'Are you sure?',
@@ -43,7 +43,7 @@ $('.deleteForm').on('submit', function(event) {
         });
 });
 
-$('.logoutForm').on('click', function(event) {
+$('.logoutForm').on('click', function (event) {
     Swal.fire({
         title: 'Are you sure?',
         text: "Do you want to log out?",
@@ -59,7 +59,7 @@ $('.logoutForm').on('click', function(event) {
     });
 })
 
-$('.editForm').on('submit', function(event) {
+$('.editForm').on('submit', function (event) {
     event.preventDefault();
     Swal.fire({
         title: 'Are you sure?',
@@ -76,7 +76,7 @@ $('.editForm').on('submit', function(event) {
     });
 })
 
-$('.deleteUserForm').on('submit', function(event) {
+$('.deleteUserForm').on('submit', function (event) {
     event.preventDefault();
     Swal.fire({
         title: 'Are you sure?',
@@ -93,12 +93,24 @@ $('.deleteUserForm').on('submit', function(event) {
     });
 })
 
-$(document).ready(function() {
-    $('.info-button').click(function() {
+$(document).ready(function () {
+    var degrees = 360;
+
+    $('.info-button').click(function () {
         $('.informationtext').animate({
             width: 'toggle',
             opacity: 'toggle'
         })
+
+        degrees += 360;
+
+        $('.info-icon').css({
+            'transform': 'rotate(' + degrees + 'deg)',
+            '-ms-transform': 'rotate(' + degrees + 'deg)',
+            '-moz-transform': 'rotate(' + degrees + 'deg)',
+            '-webkit-transform': 'rotate(' + degrees + 'deg)',
+            '-o-transform': 'rotate(' + degrees + 'deg)'
+        });
     })
 })
 
@@ -107,3 +119,23 @@ var noteContainer = document.querySelector(".notecontainer");
 Sortable.create(noteContainer, {
     animation: 500
 });
+
+// function setup() {
+//     var context = new AudioContext();
+//     noCanvas();
+//     let lang = navigator.language || 'en-US';
+//     let speechRec = new p5.SpeechRec(lang, gotSpeech);
+
+//     let continuous = true;
+//     let interm = true;
+//     speechRec.start(continuous, interm);
+//     context.resume();
+
+//     function gotSpeech() {
+//         if (speechRec.resultValue) {
+//             if (speechRec.resultString == $('.voice-note-textarea').val()) {
+//                 console.log($('.voice-note-textarea').val())
+//             }
+//         }
+//     }
+// }

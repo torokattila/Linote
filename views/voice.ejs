@@ -30,24 +30,98 @@
 
         <div class="recognition-note">
             <% for (var key in noteArray) { %>
-                <div>
-                    <span class="voice-note-title-div"><%=noteArray[key].title%></span>
+            <div>
+                <div class="voice-note-title-div"><span><%=noteArray[key].title%></span></div>
+            </div>
+            <div>
+                <div class="voice-note-textarea"><span class="voice-textarea-text">
+                        <% var words = noteArray[key].content.split(' '); %>
+                        <% var resultContent = ''; %>
+                        <% words.forEach((word) => { %>
+                        <span class="oldword"><%= word %></span>
+                        <% }) %>
+                    </span>
                 </div>
-                <div>
-                    <textarea class="voice-note-textarea"><%=noteArray[key].content%></textarea>
-                </div>
+            </div>
             <% } %>
         </div>
 
         <form action="/main" method="get" class="backForm">
             <div class="logout-button-div">
-                <button title="Back to main page" type="submit" class="logout-button"><img style="filter: invert(100%);" class="logout-icon"
-                        src="/back.png"></button>
+                <button title="Back to main page" type="submit" class="logout-button back-button"><img
+                        style="filter: invert(100%);" class="logout-icon" src="/back.png"></button>
             </div>
         </form>
 
     </div>
+    <script>
+        $(document).ready(function () {
+            var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+            var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 
+            var grammar = '#JSGF V1.0;'
+
+            var recognition = new SpeechRecognition();
+            var speechRecognitionList = new SpeechGrammarList();
+            speechRecognitionList.addFromString(grammar, 1);
+            recognition.grammars = speechRecognitionList;
+            recognition.lang = 'en-US';
+            recognition.interimResults = true;
+            recognition.continuous = true;
+
+            recognition.onresult = function (event) {
+                var last = event.results.length - 1;
+                var command = event.results[last][0].transcript;
+                let commandArray = [];
+                let textareaWordsArray = [];
+                var strikedWordSpan = document.createElement('span');
+                strikedWordSpan.className = 'readword';
+
+            
+                commandArray.push(command.toLowerCase().split(' '));
+                // textareaWordsArray.push($('.oldword').text().toLowerCase().split(' '));
+                $('.oldword').each(function () {
+                    textareaWordsArray.push($(this).text().toLowerCase().split(' '));
+                });
+
+                for (let i = 0; i < commandArray.length; i++) {
+
+                    commandArray[i].forEach((item) => {
+                        for (let j = 0; j < textareaWordsArray.length; j++) {
+                            
+                            let tempVariable = textareaWordsArray[j];
+                            
+                            for (let k = 0; k < tempVariable.length; k++) {
+                                
+                                if (item === tempVariable[k]) {
+                                    strikedWordSpan.innerHTML = tempVariable[k];
+                                    // var oldValue = $('.voice-textarea-text').text();
+                                    var oldValue = '';
+                                    $('.oldword').each(function () {
+                                        oldValue += $(this).text() + ' ';
+                                    });
+                                    
+                                    // var newValue = oldValue.replace(tempVariable[k], strikedWordSpan);
+                                    // $('.voice-textarea-text').text(newValue);
+                                    $('.oldword:first').replaceWith(strikedWordSpan);
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
+            recognition.onspeechend = function () {
+                recognition.stop();
+            }
+
+            recognition.onerror = function (event) {
+                console.log(event.error);
+            }
+
+            recognition.start();
+        })
+    </script>
     <script src="/script.js"></script>
 </body>
 
