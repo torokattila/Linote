@@ -73,43 +73,23 @@
                 var last = event.results.length - 1;
                 var command = event.results[last][0].transcript;
                 let commandArray = [];
-                let textareaWordsArray = [];
-                var strikedWordSpan = document.createElement('span');
-                strikedWordSpan.className = 'readword';
 
-            
                 commandArray.push(command.toLowerCase().split(' '));
-                // textareaWordsArray.push($('.oldword').text().toLowerCase().split(' '));
-                $('.oldword').each(function () {
-                    textareaWordsArray.push($(this).text().toLowerCase().split(' '));
-                });
 
                 for (let i = 0; i < commandArray.length; i++) {
 
                     commandArray[i].forEach((item) => {
-                        for (let j = 0; j < textareaWordsArray.length; j++) {
-                            
-                            let tempVariable = textareaWordsArray[j];
-                            
-                            for (let k = 0; k < tempVariable.length; k++) {
-                                
-                                if (item === tempVariable[k]) {
-                                    strikedWordSpan.innerHTML = tempVariable[k];
-                                    // var oldValue = $('.voice-textarea-text').text();
-                                    var oldValue = '';
-                                    $('.oldword').each(function () {
-                                        oldValue += $(this).text() + ' ';
-                                    });
-                                    
-                                    // var newValue = oldValue.replace(tempVariable[k], strikedWordSpan);
-                                    // $('.voice-textarea-text').text(newValue);
-                                    $('.oldword:first').replaceWith(strikedWordSpan);
-                                }
+
+                        $('.oldword').each(function () {
+                            if (item === $(this).text().toLowerCase()) {
+                                $(this).css('text-decoration', 'line-through');
                             }
-                        }
+                        });
+
                     });
                 }
             }
+
 
             recognition.onspeechend = function () {
                 recognition.stop();
