@@ -9,7 +9,37 @@ const configAuth = require('./auth');
 
 const conn = mysql.createConnection(dbconfig.connection);
 
+conn.query('CREATE DATABASE IF NOT EXISTS linote');
+
 conn.query('USE ' + dbconfig.database);
+
+conn.query("CREATE TABLE IF NOT EXISTS `note`" + "(" +  
+    "`user_id` int(6) unsigned DEFAULT NULL, " + 
+    "`user_facebook_id` varchar(100) DEFAULT NULL, " +
+    "`user_google_id` varchar(100) DEFAULT NULL, " + 
+    "`note_id` int(6) unsigned NOT NULL AUTO_INCREMENT, " + 
+    "`title` varchar(100) DEFAULT NULL, " +
+    "`content` mediumtext, " + 
+    " PRIMARY KEY(`note_id`) " + 
+");");
+
+conn.query("CREATE TABLE IF NOT EXISTS `user` ( " + 
+    "`id` int(6) NOT NULL AUTO_INCREMENT, " + 
+    "`username` varchar(100) DEFAULT NULL, " + 
+    "`password` varchar(100) DEFAULT NULL, " + 
+    "`facebook_id` varchar(200) DEFAULT NULL, " + 
+    "`facebook_token` varchar(300) DEFAULT NULL, " + 
+    "`facebook_email` varchar(100) DEFAULT NULL, " + 
+    "`facebook_name` varchar(200) DEFAULT NULL, " + 
+    "`google_id` varchar(200) DEFAULT NULL, " + 
+    "`google_token` varchar(300) DEFAULT NULL, " + 
+    "`google_email` varchar(100) DEFAULT NULL, " + 
+    "`google_name` varchar(100) DEFAULT NULL, " + 
+    "PRIMARY KEY (`id`), " + 
+    "UNIQUE KEY `id` (`id`), " + 
+    "UNIQUE KEY `google_id` (`google_id`), " + 
+    "UNIQUE KEY `facebook_id` (`facebook_id`) " + 
+  ")");
 
 module.exports = (passport) => {
     passport.serializeUser((user, done) => {
