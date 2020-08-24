@@ -2,7 +2,7 @@ const passport = require('passport');
 
 require('dotenv').config();
 
-const hostname = process.env.HOST;
+const hostname = 'ec2-54-247-118-139.eu-west-1.compute.amazonaws.com:5432/d28ll9q8qtq9i5';
 const user = process.env.USER;
 const password = process.env.PASSWORD;
 const database = process.env.DATABASE;
