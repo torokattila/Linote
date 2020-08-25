@@ -17,5 +17,6 @@ module.exports = {
     },
     'database': database,
     'user_table': 'user',
-    'note_table': 'note'
+    'note_table': 'note',
+    'port': 3306
 }
