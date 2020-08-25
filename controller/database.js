@@ -2,10 +2,10 @@ const passport = require('passport');
 
 require('dotenv').config();
 
-const hostname = 'ec2-54-247-118-139.eu-west-1.compute.amazonaws.com';
-const user = 'cfblthoxcnxaqd';
-const password = '7b1dc6c614e676d194ad51ed67fdf5cd9049378f9f9a8b088a1823c65b5a9642';
-const database = process.env.DATABASE;
+const hostname = 'eu-cdbr-west-03.cleardb.net';
+const user = 'b314217d377070';
+const password = 'c0d3344e';
+const database = 'heroku_d92ce9cc8707b45';
 const user_table = process.env.USER_TABLE;
 const note_table = process.env.NOTE_TABLE;
 
@@ -16,7 +16,6 @@ module.exports = {
         'password': password
     },
     'database': database,
-    'user_table': user_table,
-    'note_table': note_table,
-    'port': 5432
+    'user_table': 'user',
+    'note_table': 'note'
 }
