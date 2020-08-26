@@ -9,7 +9,7 @@ const configAuth = require('./auth');
 
 const conn = mysql.createConnection(dbconfig.connection);
 
-conn.query('CREATE DATABASE IF NOT EXISTS linote');
+// conn.query('CREATE DATABASE IF NOT EXISTS linote');
 
 conn.query('USE ' + dbconfig.database);
 

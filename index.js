@@ -5,7 +5,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const PORT = (process.env.PORT || 3306);
+const PORT = (process.env.PORT || 3000);
 
 const app = express();
 const passport = require('passport');
