@@ -116,9 +116,9 @@ $(document).ready(function () {
 
 var noteContainer = document.querySelector(".notecontainer");
 
-Sortable.create(noteContainer, {
-    animation: 500
-});
+// Sortable.create(noteContainer, {
+//     animation: 500
+// });
 
 // function setup() {
 //     var context = new AudioContext();
