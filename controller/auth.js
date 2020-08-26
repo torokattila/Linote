@@ -6,7 +6,7 @@ module.exports = {
     'facebookAuth' : {
         'clientID': '352936062401441',
         'clientSecret': 'fd64c28011b7222295f97835b4d29b6b',
-        'callbackURL': 'https://linote.herokuapp.com//auth/facebook/callback',
+        'callbackURL': 'https://linote.herokuapp.com/auth/facebook/callback',
         'profileFields': ['id', 'emails', 'name']
     },
 
