@@ -11,7 +11,7 @@ const configAuth = require('./auth');
 var conn;
 
 function handleDisconnect() {
-    conn = mysql.createPool(dbconfig.connection);
+    conn = mysql.createConnection(dbconfig.connection);
 
     conn.connect(function(err) {
         if (err) {
