@@ -8,7 +8,7 @@ const dbconfig = require('./database');
 const configAuth = require('./auth');
 
 // const conn = mysql.createConnection(dbconfig.connection);
-var conn = mysql.createConnection(dbconfig.connection);
+var conn = mysql.createPool(dbconfig.connection);
 
 // function handleDisconnect() {
 //     conn = mysql.createConnection(dbconfig.connection);
