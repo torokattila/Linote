@@ -11,10 +11,10 @@ const note_table = process.env.NOTE_TABLE;
 
 module.exports = {
     'connection': {
-        'connectionLimit': 50,
         'host': hostname,
         'user': user,
         'password': password
+        // 'connectionLimit': 50,
     },
     'database': database,
     'user_table': 'user',

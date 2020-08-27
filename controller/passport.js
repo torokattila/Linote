@@ -8,30 +8,29 @@ const dbconfig = require('./database');
 const configAuth = require('./auth');
 
 // const conn = mysql.createConnection(dbconfig.connection);
-var conn = mysql.createPool(dbconfig.connection);
+var conn;
 
-// function handleDisconnect() {
-//     conn = mysql.createConnection(dbconfig.connection);
+function handleDisconnect() {
+    conn = mysql.createConnection(dbconfig.connection);
 
-//     conn.connect(function(err) {
-//         if (err) {
-//             console.log('error when connecting to db:', err);
-//             setTimeout(handleDisconnect, 2000);
-//         }
-//     });
+    conn.connect(function(err) {
+        if (err) {
+            console.log('error when connecting to db:', err);
+            setTimeout(handleDisconnect, 10000);
+        }
+    });
 
-//     conn.on('error', function(err) {
-//         console.log('db error', err);
-//         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-//             handleDisconnect();
-//         } else {
-//             throw err;
-//         }
-//     });
-// }
+    conn.on('error', function(err) {
+        console.log('db error', err);
+        if (err.code == 'PROTOCOL_CONNECTION_LOST') {
+            handleDisconnect();
+        } else {
+            throw err;
+        }
+    });
+}
 
-// handleDisconnect();
-
+handleDisconnect();
 
 // conn.query('CREATE DATABASE IF NOT EXISTS `linote`');
 
@@ -73,7 +72,7 @@ module.exports = (passport) => {
     passport.deserializeUser((req, user, done) => {
 
         conn.query("SELECT * FROM user WHERE id = ? OR facebook_id = ? OR google_id", [user.id, user.facebook_id, user.google_id], (err, rows) => {
-            conn.release();
+            // conn.release();
             if (err) {
                 console.log(err);
                 return done(null, err);
@@ -91,7 +90,7 @@ module.exports = (passport) => {
         },
             function (req, username, password, done) {
                 conn.query("SELECT * FROM user WHERE username = ?", [username], function (err, rows) {
-                    conn.release();
+                    // conn.release();
 
                     if (err)
                         return done(err);
@@ -107,6 +106,7 @@ module.exports = (passport) => {
                         let insertQuery = "INSERT INTO user (username, password) values (?, ?)";
 
                         conn.query(insertQuery, [userToMysql.username, userToMysql.password], (err, rows) => {
+                            // conn.release();
                             if (err) {
                                 console.log(err);
                             } else {
@@ -130,7 +130,7 @@ module.exports = (passport) => {
         },
             function (req, username, password, done) {
                 conn.query("SELECT * FROM user WHERE username = ?", [username], (err, rows) => {
-                    conn.release();
+                    // conn.release();
                     if (err)
                         return done(err);
 
@@ -156,7 +156,7 @@ module.exports = (passport) => {
         function (req, accessToken, refreshToken, profile, done) {
             process.nextTick(function () {
                 conn.query('SELECT * FROM user WHERE facebook_id = ?', [profile.id], (err, user) => {
-                    conn.release();
+                    // conn.release();
                     if (err) {
                         return done(err);
                     } else if (user) {
@@ -169,7 +169,7 @@ module.exports = (passport) => {
 
                         conn.query("INSERT INTO user (username, facebook_id, facebook_token, facebook_email, facebook_name) VALUES (?, ?, ?, ?, ?) ",
                             [profile.name.givenName, profile.id, accessToken, profile.emails[0].value, profile.name.givenName + ' ' + profile.name.familyName], (err, rows) => {
-                                conn.release();
+                                // conn.release();
                                 if (err)
                                     console.log(err)
                                 return done(null, newUser);
@@ -191,7 +191,7 @@ module.exports = (passport) => {
         function (req, accessToken, refreshToken, profile, done) {
             process.nextTick(function () {
                 conn.query("SELECT * FROM user WHERE google_id = ?", [profile.id], (err, user) => {
-                    conn.release();
+                    // conn.release();
                     if (err) {
                         return done(err);
                     } else if (user) {
@@ -204,7 +204,7 @@ module.exports = (passport) => {
 
                         conn.query("INSERT INTO user (username, google_id, google_token, google_email, google_name) VALUES (?, ?, ?, ?, ?)",
                             [profile.name.givenName, profile.id, accessToken, profile.emails[0].value, profile.name.givenName + ' ' + profile.name.familyName], (err, rows) => {
-                                conn.release();
+                                // conn.release();
                                 if (err) {
                                     console.log(err);
                                 }

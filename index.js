@@ -21,18 +21,18 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.set('view engine', 'ejs');
-app.set('trust proxy', 1);
+// app.set('trust proxy', 1);
 app.use(session({
     secret: 'justasecret',
     resave: true,
     saveUninitialized: true
 }));
-app.use(function(req, res, next) {
-    if (!req.session) {
-        return next(new Error('Something went wrong with the session'))
-    }
-    next();
-});
+// app.use(function(req, res, next) {
+//     if (!req.session) {
+//         return next(new Error('Something went wrong with the session'))
+//     }
+//     next();
+// });
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
