@@ -2,7 +2,7 @@ const dbconfig = require('./database');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
-const conn = mysql.createConnection(dbconfig.connection);
+const conn = mysql.createPool(dbconfig.connection);
 
 conn.query('USE ' + dbconfig.database);
 
@@ -64,6 +64,7 @@ module.exports = function (app, passport) {
         const user = req.user;
 
         conn.query("SELECT note_id, title, content FROM note JOIN user ON (note.user_id = user.id OR note.user_facebook_id = user.facebook_id OR note.user_google_id = user.google_id) WHERE user_id = ? OR facebook_id = ? OR google_id = ?", [user.id, user.facebook_id, user.google_id], function (err, rows) {
+            conn.release();
             if (err) {
                 console.log(err);
             }
@@ -91,6 +92,7 @@ module.exports = function (app, passport) {
         let content = req.body.newNoteTextarea;
 
         conn.query("INSERT INTO note (user_id, user_facebook_id, user_google_id, title, content) VALUES (?, ?, ?, ?, ?)", [user.id, user.facebook_id, user.google_id, title, content], (err, rows) => {
+            conn.release();
             if (err) {
                 console.log(err);
             } else {
@@ -106,6 +108,7 @@ module.exports = function (app, passport) {
         let noteId = req.body.noteId;
 
         conn.query("SELECT user_id, user_facebook_id, user_google_id, note_id FROM note JOIN user ON note.user_id = user.id WHERE user_id = ? OR user_facebook_id = ? OR user_google_id = ?", [user.id, user.facebook_id, user.google_id], function (err, rows) {
+            conn.release();
             if (err) {
                 console.log(err);
             }
@@ -128,10 +131,12 @@ module.exports = function (app, passport) {
         let noteContent = req.body.noteContent;
 
         conn.query("SELECT user_id, user_facebook_id, user_google_id, note_id FROM note JOIN user ON note.user_id = user.id WHERE user_id = ? OR user_facebook_id = ? OR user_google_id = ?", [user.id, user.facebook_id, user.google_id], function (err, rows) {
+            conn.release();
             if (err) {
                 console.log(err);
             }
             conn.query("UPDATE note SET title = ?, content = ? WHERE note_id = ?", [noteTitle, noteContent, noteId], (err, rows) => {
+                conn.release();
                 if (err) {
                     console.log(err);
                 } else {
@@ -149,6 +154,7 @@ module.exports = function (app, passport) {
         let noteArray = [];
 
         conn.query("SELECT note_id, title, content FROM note WHERE note_id = ?", [noteId], (err, rows) => {
+            conn.release();
             let queryRows = JSON.parse(JSON.stringify(rows));
 
             queryRows.forEach((row) => {
@@ -170,6 +176,7 @@ module.exports = function (app, passport) {
         res.redirect('/');
 
         conn.query("DELETE FROM user WHERE id = ? OR facebook_id = ? OR google_id = ?", [user.id, user.facebook_id, user.google_id], (err, rows) => {
+            conn.release();
             if (err) {
                 console.log(err);
             } else {
@@ -178,6 +185,7 @@ module.exports = function (app, passport) {
         });
 
         conn.query("DELETE FROM note WHERE user_id = ? OR user_facebook_id = ? OR user_google_id = ?", [user.id, user.facebook_id, user.google_id], (err, rows) => {
+            conn.release();
             if (err) {
                 console.log(err);
             } else {
