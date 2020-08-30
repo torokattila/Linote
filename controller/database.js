@@ -2,10 +2,10 @@ const passport = require('passport');
 
 require('dotenv').config();
 
-const hostname = 'eu-cdbr-west-03.cleardb.net';
-const user = 'b314217d377070';
-const password = 'e44978254bef266';
-const database = 'heroku_d92ce9cc8707b45';
+const hostname = process.env.HOST;
+const user = process.env.USER;
+const password = process.env.PASSWORD;
+const database = process.env.DATABASE;
 const user_table = process.env.USER_TABLE;
 const note_table = process.env.NOTE_TABLE;
 
@@ -17,7 +17,7 @@ module.exports = {
         // 'connectionLimit': 50,
     },
     'database': database,
-    'user_table': 'user',
-    'note_table': 'note',
+    'user_table': user_table,
+    'note_table': note_table,
     'port': 3306
 }
