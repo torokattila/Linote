@@ -23,9 +23,6 @@ $('.show-pw').on('touchstart mousedown', function () {
     $(this).prev().attr('type', 'password');
 })
 
-const colors = ['#fff740', '#ef820d', '#fda50f', '#cf9812a'];
-const newColor = colors[Math.floor(Math.random() * colors.length)];
-
 $('.deleteForm').on('submit', function (event) {
     event.preventDefault(),
         Swal.fire({
@@ -114,28 +111,8 @@ $(document).ready(function () {
     })
 })
 
-var noteContainer = document.querySelector(".notecontainer");
+// var noteContainer = document.querySelector(".notecontainer");
 
 // Sortable.create(noteContainer, {
 //     animation: 500
 // });
-
-// function setup() {
-//     var context = new AudioContext();
-//     noCanvas();
-//     let lang = navigator.language || 'en-US';
-//     let speechRec = new p5.SpeechRec(lang, gotSpeech);
-
-//     let continuous = true;
-//     let interm = true;
-//     speechRec.start(continuous, interm);
-//     context.resume();
-
-//     function gotSpeech() {
-//         if (speechRec.resultValue) {
-//             if (speechRec.resultString == $('.voice-note-textarea').val()) {
-//                 console.log($('.voice-note-textarea').val())
-//             }
-//         }
-//     }
-// }

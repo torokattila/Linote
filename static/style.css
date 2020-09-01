@@ -20,8 +20,8 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-	border-radius: 10px;
-	background-color: transparent;
+  border-radius: 10px;
+  background-color: transparent;
 }
 
 body {
@@ -326,6 +326,11 @@ a:hover {
   background: #ffe259;
   background: -webkit-linear-gradient(to right, #fc8d1f, #fad51c);
   background: linear-gradient(to right, #fc8d1f, #fad51c);
+  transition: all 0.1s ease;
+  width: 50px;
+  height: 50px;
+  font-size: 200%;
+  padding: 17px;
 }
 
 .logout-button-div {
@@ -350,6 +355,7 @@ a:hover {
     rgba(251, 223, 64, 1) 90%
   );
   box-shadow: -3px 5px 10px -5px rgba(0, 0, 0, 0.59);
+  transition: all 0.1s ease;
 }
 
 .logout-button:hover {
@@ -358,10 +364,18 @@ a:hover {
   background: linear-gradient(to right, #fc9d3f, #fcda34);
 }
 
+.logout-button:active .logout-icon {
+  width: 31px;
+  height: 31px;
+}
+
 .logout-button:active {
   background: #ffe259;
   background: -webkit-linear-gradient(to right, #fc8d1f, #fad51c);
   background: linear-gradient(to right, #fc8d1f, #fad51c);
+  transition: all 0.1s ease;
+  width: 63px;
+  height: 63px;
 }
 
 .logout-icon {
@@ -739,6 +753,7 @@ ul {
     rgba(245, 76, 76, 0.8) 0.7%,
     rgba(243, 203, 129, 0.9) 86.1%
   );
+  transition: all 0.1s ease;
 }
 
 .delete-user-button:hover {
@@ -755,6 +770,14 @@ ul {
     rgba(245, 9, 9, 0.836) 0.7%,
     rgba(243, 203, 129, 0.9) 86.1%
   );
+  transition: all 0.1s ease;
+  width: 58px;
+  height: 58px;
+}
+
+.delete-user-button:active .delete-user-icon {
+  width: 25px;
+  height: 25px;
 }
 
 .delete-user-icon {
@@ -790,6 +813,7 @@ ul {
     rgb(235, 174, 82) 0%,
     rgb(255, 225, 55) 90%
   );
+  transition: all 0.1s ease;
 }
 
 .info-icon {
@@ -797,6 +821,11 @@ ul {
   width: 20px;
   height: 20px;
   transition: all 0.5s ease;
+}
+
+.info-button:active .info-icon {
+  width: 18px;
+  height: 18px;
 }
 
 .info-button:hover {
@@ -813,6 +842,10 @@ ul {
     rgb(179, 107, 0) 0%,
     rgb(233, 199, 5) 90%
   );
+  width: 30px;
+  height: 32px;
+  transition: all 0.1s ease;
+  padding: 3px;
 }
 
 .informationtext {
@@ -876,7 +909,7 @@ ul {
 }
 
 .back-button {
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
 }
 
 .back-button:hover {
@@ -885,7 +918,7 @@ ul {
   -moz-transform: rotate(-20deg);
   -webkit-transform: rotate(-20deg);
   -o-transform: rotate(-20deg);
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
 }
 
 @media only screen and (max-width: 760px) {
@@ -940,10 +973,11 @@ ul {
     width: 16px;
   }
   .login-button {
-    padding: 23%;
-    width: 146%;
+    padding: 35%;
+    width: 220%;
     font-size: 8px;
     outline: none;
+    transition: all 0.1s ease;
   }
   .form-input {
     border: none;
@@ -1007,6 +1041,14 @@ ul {
     height: 45px;
     font-size: 190%;
     padding: 10px;
+    transition: all 0.1s ease;
+  }
+  .add-button:active {
+    transition: all 0.1s ease;
+    width: 35px;
+    height: 35px;
+    font-size: 170%;
+    padding: 8px;
   }
   .logout-button-div {
     position: fixed;
@@ -1017,6 +1059,7 @@ ul {
     padding: 15px;
     width: 57px;
     height: 57px;
+    transition: all 0.1 ease;
   }
   .logout-icon {
     transform: translate(-50%, -50%);
@@ -1230,7 +1273,20 @@ ul {
       rgba(245, 76, 76, 0.8) 0.7%,
       rgba(243, 203, 129, 0.9) 86.1%
     );
+    transition: all 0.1s ease;
   }
+
+  .delete-user-button:active {
+    transition: all 0.1s ease;
+    width: 40px;
+    height: 40px;
+  }
+
+  .delete-user-button:active .delete-user-icon {
+    width: 20px;
+    height: 20px;
+  }
+
   .delete-account-div {
     position: absolute;
     right: 3%;
@@ -1248,6 +1304,16 @@ ul {
   .info-button {
     padding: 3px;
     width: 32px;
+    transition: all 0.1s ease;
+  }
+  .info-button:active {
+    transition: all 0.1s ease;
+    width: 26px;
+    height: 26px;
+  }
+  .info-button:active .info-icon {
+    width: 15px;
+    height: 15px;
   }
   .info-icon {
     width: 19px;
@@ -1308,7 +1374,7 @@ ul {
     box-shadow: -3px 5px 10px -3px rgba(0, 0, 0, 0.59);
     font-family: "Indie Flower", cursive;
   }
-  
+
   .voice-note-title-div {
     position: relative;
     top: 20px;
@@ -1316,7 +1382,7 @@ ul {
     font-size: 20px;
     left: 38%;
   }
-  
+
   .voice-note-textarea {
     clear: left;
     overflow: auto;
@@ -1337,5 +1403,16 @@ ul {
   }
   .readword {
     text-decoration: line-through;
+  }
+
+  .logout-button:active {
+    transition: all 0.1s ease;
+    width: 48px;
+    height: 48px;
+  }
+
+  .logout-button:active .logout-icon {
+    width: 21px;
+    height: 21px;
   }
 }
