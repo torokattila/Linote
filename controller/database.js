@@ -14,7 +14,6 @@ module.exports = {
         'host': hostname,
         'user': user,
         'password': password
-        // 'connectionLimit': 50,
     },
     'database': database,
     'user_table': user_table,
